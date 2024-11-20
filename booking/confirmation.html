@@ -1,0 +1,393 @@
+<html><head><base href="/booking/confirmation.html">
+    <meta charset="UTF-8">
+    <title>Booking Confirmation | 5th Dimensional Tourism Bureau</title>
+    <style>
+    :root {
+      --glow: 0 0 10px rgba(255,255,255,0.8), 0 0 20px rgba(100,200,255,0.4);
+    }
+    
+    body {
+      margin: 0;
+      background: radial-gradient(circle at 50% 50%, 
+        rgba(20,2,40,1) 0%,
+        rgba(2,20,40,0.9) 30%,
+        rgba(40,2,20,0.8) 60%,
+        rgba(20,40,2,0.7) 100%);
+      color: #fff;
+      font-family: "Space Mono", monospace;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: backgroundShift 20s infinite linear;
+    }
+    
+    @keyframes backgroundShift {
+      0% { background-position: 0% 0%; }
+      50% { background-position: 100% 100%; }
+      100% { background-position: 0% 0%; }
+    }
+    
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+    
+    .particle {
+      position: absolute;
+      background: rgba(66,255,255,0.15);
+      box-shadow: 0 0 10px rgba(66,255,255,0.3);
+      border-radius: 50%;
+      pointer-events: none;
+      animation: float 15s infinite linear;
+      opacity: 0;
+      filter: blur(1px);
+    }
+    
+    .particle:nth-child(3n) {
+      background: rgba(255,66,255,0.15);
+      box-shadow: 0 0 10px rgba(255,66,255,0.3);
+    }
+    
+    .particle:nth-child(3n+1) {
+      background: rgba(255,255,66,0.15);
+      box-shadow: 0 0 10px rgba(255,255,66,0.3);
+    }
+    
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) translateX(0) scale(0) rotate(0deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.8;
+      }
+      90% {
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(-100px) translateX(calc(sin(var(--random)) * 200px)) scale(1) rotate(360deg);
+        opacity: 0;
+      }
+    }
+    
+    .confirmation-container {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 50px;
+      padding: 40px;
+      background: rgba(0,0,0,0.8);
+      border-radius: 20px;
+      border: 2px solid rgba(66,255,255,0.3);
+      backdrop-filter: blur(10px);
+      text-align: center;
+      animation: containerFloat 6s infinite ease-in-out;
+      box-shadow: 0 0 50px rgba(66,255,255,0.2),
+                  inset 0 0 30px rgba(255,66,255,0.2);
+    }
+    
+    @keyframes containerFloat {
+      0%, 100% { 
+        transform: translateY(0) rotate(0deg);
+        box-shadow: 0 0 50px rgba(66,255,255,0.3),
+                    inset 0 0 30px rgba(255,66,255,0.2);
+      }
+      50% { 
+        transform: translateY(-10px) rotate(0.5deg);
+        box-shadow: 0 0 70px rgba(255,66,255,0.4),
+                    inset 0 0 50px rgba(66,255,255,0.3);
+      }
+    }
+    
+    .confirmation-header {
+      font-size: 2.5em;
+      margin-bottom: 30px;
+      color: #4ff;
+      text-shadow: var(--glow);
+      animation: glitch 0.3s infinite;
+    }
+    
+    @keyframes glitch {
+      0% { transform: translate(0); }
+      20% { transform: translate(-2px, 2px); }
+      40% { transform: translate(2px, -2px); }
+      60% { transform: translate(-2px, -2px); }
+      80% { transform: translate(2px, 2px); }
+      100% { transform: translate(0); }
+    }
+    
+    .confirmation-details {
+      margin: 30px 0;
+      padding: 20px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 10px;
+      animation: detailsPulse 4s infinite alternate;
+    }
+    
+    @keyframes detailsPulse {
+      0% { background: rgba(255,255,255,0.05); }
+      100% { background: rgba(66,255,255,0.1); }
+    }
+    
+    .confirmation-code {
+      font-size: 1.5em;
+      color: #4ff;
+      text-shadow: var(--glow);
+      letter-spacing: 3px;
+      margin: 20px 0;
+      animation: codeFloat 3s infinite ease-in-out;
+    }
+    
+    @keyframes codeFloat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+    
+    .timeline {
+      position: relative;
+      height: 4px;
+      background: rgba(66,255,255,0.2);
+      margin: 40px 0;
+      overflow: hidden;
+    }
+    
+    .timeline::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, #4ff, transparent);
+      animation: timelineProgress 3s infinite linear;
+    }
+    
+    @keyframes timelineProgress {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(200%); }
+    }
+    
+    .portal-rings {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 300px;
+      height: 300px;
+      pointer-events: none;
+    }
+    
+    .ring {
+      position: absolute;
+      border: 2px solid rgba(66,255,255,0.2);
+      border-radius: 50%;
+      animation: ringPulse 4s infinite ease-out;
+    }
+    
+    @keyframes ringPulse {
+      0% {
+        width: 0;
+        height: 0;
+        opacity: 1;
+      }
+      100% {
+        width: 300px;
+        height: 300px;
+        opacity: 0;
+      }
+    }
+    
+    .return-btn {
+      background: linear-gradient(45deg, #4ff, #f4f);
+      color: #fff;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 30px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-shadow: var(--glow);
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 20px;
+    }
+    
+    .return-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px rgba(255,255,255,0.4);
+    }
+    
+    .dimensional-warning {
+      color: #ff7f7f;
+      font-style: italic;
+      margin-top: 20px;
+      font-size: 0.9em;
+      animation: warningPulse 2s infinite;
+    }
+    
+    @keyframes warningPulse {
+      0%, 100% { opacity: 0.7; }
+      50% { opacity: 1; }
+    }
+    </style>
+    </head>
+    <body>
+    
+    <div class="particles"></div>
+    
+    <div class="confirmation-container">
+      <h1 class="confirmation-header">B̷o̷o̷k̷i̷n̷g̷ C̷o̷n̷f̷i̷r̷m̷e̷d̷</h1>
+      
+      <div class="portal-rings">
+        <div class="ring"></div>
+        <div class="ring" style="animation-delay: 1s"></div>
+        <div class="ring" style="animation-delay: 2s"></div>
+      </div>
+    
+      <div class="confirmation-details">
+        <p>Your temporal coordinates have been secured across all relevant dimensions.</p>
+        <div class="confirmation-code">∆∞Ω¥₪</div>
+        <p>Please keep this interdimensional confirmation code safe.</p>
+        <p>Your stay will begin/has begun/is perpetually beginning at:</p>
+        <p>Temporal Point: <span class="glitch-text">∞-∆t</span></p>
+        
+        <div style="margin-top: 30px; text-align: left; padding: 20px; background: rgba(255,255,255,0.05); border-radius: 10px;">
+          <h3 style="color: #4ff; margin-bottom: 15px;">Booking Details:</h3>
+          <p>Room Number: <span class="glitch-text">ℵ-<span id="roomNumber">...</span></span></p>
+          <p>Quantum Floor: <span class="glitch-text">π-<span id="floorNumber">...</span></span></p>
+          <p>Matrix Reference: <span class="glitch-text">M-<span id="matrixRef">...</span></span></p>
+          <p>Dimensional Alignment: <span class="glitch-text">φ-<span id="alignment">...</span></span></p>
+          <p>Temporal Duration: ∞ ± 3 metacycles</p>
+        </div>
+      </div>
+    
+      <div class="timeline"></div>
+    
+      <p>Your consciousness transfer is scheduled for:</p>
+      <p class="glitch-text">NOW/THEN/ALWAYS</p>
+    
+      <div class="dimensional-warning">
+        ⚠️ Warning: Your past and future selves may be simultaneously occupying your room.
+        Please avoid temporal paradoxes and maintain proper quantum etiquette.
+      </div>
+    
+      <div style="margin-top: 30px; text-align: left; font-size: 0.8em; opacity: 0.8;">
+        <h4 style="color: #4ff;">Terms & Conditions of Interdimensional Stay:</h4>
+        <ul style="list-style-type: none; padding-left: 0;">
+          <li>• Temporal paradoxes are strictly prohibited and may result in existence termination</li>
+          <li>• Reality warping permitted only in designated areas</li>
+          <li>• No quantum entanglement with other guests without consent</li>
+          <li>• Consciousness backups recommended before dimensional shifts</li>
+          <li>• The hotel exists in all possible states until observed</li>
+          <li>• Management not responsible for timeline divergences or causal loops</li>
+          <li>• No pets (unless they exist in superposition)</li>
+        </ul>
+      </div>
+    
+      <p style="margin-top: 30px;">
+        Our non-euclidean concierge will assist you across all temporal planes.
+      </p>
+    
+      <a href="/experiences.html" class="return-btn">See our available experiences</a>
+    </div>
+    
+    <script>
+    function createParticles() {
+      const particlesContainer = document.querySelector('.particles');
+      const particleCount = 300; // Increased from 150
+      
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        
+        const size = Math.random() * 6 + 1; // Increased size range
+        const left = Math.random() * 100;
+        const delay = Math.random() * 20;
+        const random = Math.random() * 360;
+        
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        particle.style.left = `${left}%`;
+        particle.style.animationDelay = `${delay}s`;
+        particle.style.setProperty('--random', random);
+        
+        particlesContainer.appendChild(particle);
+      }
+    }
+    
+    document.addEventListener('DOMContentLoaded', () => {
+      createParticles();
+      
+      // Generate random room details
+      document.getElementById('roomNumber').textContent = 
+        Math.floor(Math.random() * 999999).toString(16).toUpperCase();
+      
+      document.getElementById('floorNumber').textContent = 
+        (Math.floor(Math.random() * 108) + 1).toString(16).toUpperCase();
+      
+      document.getElementById('matrixRef').textContent = 
+        Array.from({length: 6}, () => 
+          String.fromCharCode(65 + Math.floor(Math.random() * 26))
+        ).join('');
+      
+      document.getElementById('alignment').textContent = 
+        (Math.random() * 360).toFixed(2) + '°';
+    
+      let portalX = window.innerWidth / 2;
+      let portalY = window.innerHeight / 2;
+      const portal = document.createElement('div');
+      portal.className = 'portal-effect';
+      document.body.appendChild(portal);
+    
+      document.addEventListener('mousemove', (e) => {
+        portalX = portalX + (e.clientX - portalX) * 0.1; // Smoother tracking
+        portalY = portalY + (e.clientY - portalY) * 0.1;
+        
+        portal.style.transform = `translate(-50%, -50%) scale(${1 + Math.sin(Date.now() * 0.001) * 0.1})`;
+        portal.style.left = `${portalX}px`;
+        portal.style.top = `${portalY}px`;
+      });
+    
+      // Enhanced glitch effect
+      setInterval(() => {
+        const glitchTexts = document.querySelectorAll('.glitch-text');
+        glitchTexts.forEach(text => {
+          if (Math.random() > 0.7) {
+            text.style.transform = `translate(${Math.random() * 4 - 2}px, ${Math.random() * 4 - 2}px) scale(${1 + Math.random() * 0.1})`;
+            text.style.color = `hsl(${Math.random() * 360}, 100%, 70%)`;
+            setTimeout(() => {
+              text.style.transform = 'none';
+              text.style.color = '';
+            }, 100);
+          }
+        });
+      }, 1000);
+    
+      // More frequent ring spawning
+      setInterval(() => {
+        const ring = document.createElement('div');
+        ring.className = 'ring';
+        document.querySelector('.portal-rings').appendChild(ring);
+        setTimeout(() => ring.remove(), 4000);
+      }, 500);
+    
+      // Enhanced dimensional distortions
+      setInterval(() => {
+        const container = document.querySelector('.confirmation-container');
+        container.style.transform = `
+          translateY(${-10 + Math.sin(Date.now() * 0.001) * 10}px)
+          rotate(${Math.sin(Date.now() * 0.0005) * 0.5}deg)
+          scale(${1 + Math.sin(Date.now() * 0.002) * 0.02})
+        `;
+      }, 50);
+    });
+    </script>
+    
+    </body></html>

@@ -1,0 +1,386 @@
+<html><head><base href="/travel.html">
+    <meta charset="UTF-8">
+    <title>Quantum Transit | 5th Dimensional Tourism Bureau</title>
+    <style>
+    :root {
+      --glow: 0 0 10px rgba(255,255,255,0.8), 0 0 20px rgba(100,200,255,0.4);
+    }
+    
+    body {
+      margin: 0;
+      background: #000;
+      color: #fff;
+      font-family: "Space Mono", monospace;
+      overflow-x: hidden;
+      perspective: 1000px;
+    }
+    
+    .quantum-container {
+      min-height: 100vh;
+      background: 
+        radial-gradient(circle at 50% 50%, 
+          rgba(60,0,60,1) 0%,
+          rgba(20,0,40,0.8) 50%,
+          rgba(0,0,20,0.6) 100%);
+      padding: 20px;
+    }
+    
+    .nav-portal {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      gap: 20px;
+      z-index: 1000;
+    }
+    
+    .portal-link {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 20px;
+      border: 2px solid rgba(255,255,255,0.2);
+      border-radius: 30px;
+      transition: all 0.3s;
+      text-shadow: var(--glow);
+    }
+    
+    .portal-link:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.8);
+      transform: scale(1.1);
+    }
+    
+    .transport-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 100px auto;
+    }
+    
+    .transport-card {
+      background: rgba(0,0,0,0.7);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 15px;
+      padding: 20px;
+      transition: all 0.5s;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    
+    .transport-card.selected {
+      border: 2px solid #7fff7f;
+      box-shadow: 0 0 20px rgba(127,255,127,0.3);
+      transform: scale(1.02);
+    }
+    
+    .transport-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, 
+        transparent 0%,
+        rgba(255,255,255,0.1) 50%,
+        transparent 100%);
+      transform: translateX(-100%);
+      transition: transform 0.6s;
+    }
+    
+    .transport-card:hover::before {
+      transform: translateX(100%);
+    }
+    
+    .quantum-vessel {
+      width: 100%;
+      height: 200px;
+      margin-bottom: 20px;
+      position: relative;
+    }
+    
+    .quantum-vessel svg {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(0 0 10px rgba(100,200,255,0.4));
+    }
+    
+    @keyframes hover {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    .price {
+      color: #7fff7f;
+      font-size: 1.2em;
+      margin-top: 10px;
+    }
+    
+    .warning {
+      color: #ff7f7f;
+      font-size: 0.8em;
+      font-style: italic;
+    }
+    
+    .wormhole {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+    }
+    
+    @keyframes portalSpin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    
+    .booking-form {
+      background: rgba(0,0,0,0.8);
+      border-radius: 15px;
+      padding: 20px;
+      margin: 40px auto;
+      max-width: 600px;
+      display: none;
+    }
+    
+    .form-input {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #fff;
+      padding: 10px;
+      margin: 5px 0;
+      width: 100%;
+      border-radius: 5px;
+    }
+    
+    #consciousness-signature {
+      min-height: 100px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      margin-top: 10px;
+      border-radius: 5px;
+    }
+    
+    .book-button {
+      background: rgba(127,255,127,0.2);
+      color: #7fff7f;
+      border: 1px solid #7fff7f;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-top: 15px;
+      width: 100%;
+    }
+    
+    .book-button:hover {
+      background: rgba(127,255,127,0.4);
+      transform: scale(1.05);
+    }
+    </style>
+    </head>
+    <body>
+    
+    <div class="quantum-container">
+      <nav class="nav-portal">
+        <a href="/" class="portal-link">Home</a>
+        <a href="/experiences.html" class="portal-link">∆xperiences</a>
+        <a href="/contact.html" class="portal-link">Contact Us</a>
+      </nav>
+    
+      <svg class="wormhole" viewBox="0 0 100 100">
+        <defs>
+          <radialGradient id="wormhole" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+            <stop offset="0%" style="stop-color:rgba(100,200,255,0.4)"/>
+            <stop offset="100%" style="stop-color:transparent"/>
+          </radialGradient>
+        </defs>
+        <g style="animation: portalSpin 20s linear infinite">
+          <circle cx="50" cy="50" r="40" fill="none" stroke="url(#wormhole)" stroke-width="0.5"/>
+          <circle cx="50" cy="50" r="30" fill="none" stroke="url(#wormhole)" stroke-width="0.5"/>
+          <circle cx="50" cy="50" r="20" fill="none" stroke="url(#wormhole)" stroke-width="0.5"/>
+        </g>
+      </svg>
+    
+      <div class="transport-grid">
+        <div class="transport-card" data-vessel="quantum-leaper">
+          <div class="quantum-vessel">
+            <svg viewBox="0 0 200 100" style="animation: hover 3s ease-in-out infinite">
+              <path d="M20,50 L100,20 L180,50 L100,80 Z" fill="#4f4f8f"/>
+              <ellipse cx="100" cy="50" rx="40" ry="20" fill="#7f7faf"/>
+              <circle cx="100" cy="50" r="10" fill="#aaaaff"/>
+            </svg>
+          </div>
+          <h3>Quantum Leaper™ Express</h3>
+          <p>Our economy class interdimensional vessel features:</p>
+          <ul>
+            <li>Probability-shifted seating (80% chance of comfort)</li>
+            <li>Superposition windows with multiple timeline views</li>
+            <li>Complimentary non-euclidean snacks</li>
+          </ul>
+          <p class="price">From 500 Void Credits</p>
+          <p class="warning">*May arrive before departure</p>
+        </div>
+    
+        <div class="transport-card" data-vessel="mobius-liner">
+          <div class="quantum-vessel">
+            <svg viewBox="0 0 200 100" style="animation: hover 4s ease-in-out infinite">
+              <path d="M10,50 C50,20 150,20 190,50 C150,80 50,80 10,50" fill="#8f4f8f"/>
+              <ellipse cx="100" cy="50" rx="60" ry="25" fill="#af7faf"/>
+              <circle cx="100" cy="50" r="15" fill="#ffaaff"/>
+            </svg>
+          </div>
+          <h3>Möbius Luxury Liner</h3>
+          <p>First-class temporal transportation including:</p>
+          <ul>
+            <li>Infinite loop observation deck</li>
+            <li>Time-dilated spa services</li>
+            <li>Personal paradox protection field</li>
+          </ul>
+          <p class="price">From 2000 Void Credits</p>
+          <p class="warning">*Multiple versions of you may experience the same journey</p>
+        </div>
+    
+        <div class="transport-card" data-vessel="hypercube-shuttle">
+          <div class="quantum-vessel">
+            <svg viewBox="0 0 200 100" style="animation: hover 5s ease-in-out infinite">
+              <path d="M50,50 L100,10 L150,50 L100,90 Z" fill="#4f8f4f"/>
+              <rect x="70" y="40" width="60" height="20" fill="#7faf7f"/>
+              <circle cx="100" cy="50" r="8" fill="#aaffaa"/>
+            </svg>
+          </div>
+          <h3>Hypercube Shuttle</h3>
+          <p>Quick dimensional hops with:</p>
+          <ul>
+            <li>4D emergency exits</li>
+            <li>Quantum uncertainty reduction field</li>
+            <li>Brief temporal displacement insurance</li>
+          </ul>
+          <p class="price">From 300 Void Credits</p>
+          <p class="warning">*Side effects may include temporary existence uncertainty</p>
+        </div>
+      </div>
+    
+      <div class="booking-form" id="main-booking-form">
+        <h3>Quantum Transit Booking Portal</h3>
+        <p>Selected Vessel: <span id="selected-vessel">None</span></p>
+        <input type="text" class="form-input" placeholder="Your name across all dimensions">
+        <input type="text" class="form-input" placeholder="Preferred reality coordinates">
+        <input type="datetime-local" class="form-input" placeholder="Departure spacetime">
+        <input type="text" class="form-input" placeholder="Quantum state preference">
+        <div id="consciousness-signature">
+          <canvas id="signature-pad" width="600" height="100"></canvas>
+        </div>
+        <p class="warning">Please sign with your consciousness wavelength pattern</p>
+        <button class="book-button">Initiate Quantum Passage</button>
+      </div>
+    </div>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const cards = document.querySelectorAll('.transport-card');
+      const bookingForm = document.getElementById('main-booking-form');
+      const selectedVesselText = document.getElementById('selected-vessel');
+      const canvas = document.getElementById('signature-pad');
+      const ctx = canvas.getContext('2d');
+      
+      // Initialize signature pad
+      let isDrawing = false;
+      let lastX = 0;
+      let lastY = 0;
+      
+      ctx.strokeStyle = 'rgba(127,255,127,0.5)';
+      ctx.lineWidth = 2;
+      ctx.lineCap = 'round';
+    
+      // Signature pad events
+      canvas.addEventListener('mousedown', startDrawing);
+      canvas.addEventListener('mousemove', draw);
+      canvas.addEventListener('mouseup', stopDrawing);
+      canvas.addEventListener('mouseout', stopDrawing);
+    
+      function startDrawing(e) {
+        isDrawing = true;
+        [lastX, lastY] = [e.offsetX, e.offsetY];
+      }
+    
+      function draw(e) {
+        if (!isDrawing) return;
+        ctx.beginPath();
+        ctx.moveTo(lastX, lastY);
+        ctx.lineTo(e.offsetX, e.offsetY);
+        ctx.stroke();
+        [lastX, lastY] = [e.offsetX, e.offsetY];
+      }
+    
+      function stopDrawing() {
+        isDrawing = false;
+      }
+    
+      // Card selection
+      cards.forEach(card => {
+        card.addEventListener('click', () => {
+          cards.forEach(c => c.classList.remove('selected'));
+          card.classList.add('selected');
+          bookingForm.style.display = 'block';
+          selectedVesselText.textContent = card.querySelector('h3').textContent;
+          
+          // Smooth scroll to form
+          bookingForm.scrollIntoView({ behavior: 'smooth' });
+        });
+      });
+    
+      // Booking button
+      const bookButton = document.querySelector('.book-button');
+      bookButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (!canvas.toDataURL().includes('data:image/png;base64,iVBOR')) {
+          alert('Please provide your consciousness signature');
+          return;
+        }
+        
+        // 40% chance of convergence
+        const hasConvergence = Math.random() < 0.4;
+        
+        // Create quantum ripple effect
+        const ripple = document.createElement('div');
+        ripple.style.position = 'fixed';
+        ripple.style.width = '10px';
+        ripple.style.height = '10px';
+        ripple.style.border = '2px solid rgba(127,255,127,0.5)';
+        ripple.style.borderRadius = '50%';
+        ripple.style.top = e.clientY + 'px';
+        ripple.style.left = e.clientX + 'px';
+        ripple.style.animation = 'ripple 2s linear';
+        document.body.appendChild(ripple);
+        
+        setTimeout(() => {
+          ripple.remove();
+          // Redirect based on convergence detection
+          if (hasConvergence) {
+            window.location.href = '/travel/convergence_detected.html';
+          } else {
+            window.location.href = '/travel/confirmation.html';
+          }
+        }, 2000);
+      });
+      
+      // Add ripple animation
+      const style = document.createElement('style');
+      style.textContent = `
+        @keyframes ripple {
+          0% { transform: scale(1); opacity: 1; }
+          100% { transform: scale(50); opacity: 0; }
+        }
+      `;
+      document.head.appendChild(style);
+    });
+    </script>
+    
+    </body></html>

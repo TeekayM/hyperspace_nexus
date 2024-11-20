@@ -1,0 +1,219 @@
+<html><head><base href="/travel/confirmation.html">
+    <meta charset="UTF-8">
+    <title>Travel Confirmation | 5th Dimensional Tourism Bureau</title>
+    <style>
+    @keyframes glitch {
+      0% { transform: translate(0); }
+      20% { transform: translate(-2px, 2px); }
+      40% { transform: translate(-2px, -2px); }
+      60% { transform: translate(2px, 2px); }
+      80% { transform: translate(2px, -2px); }
+      100% { transform: translate(0); }
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+    
+    @keyframes pulseGlow {
+      0%, 100% { filter: drop-shadow(0 0 5px rgba(127,255,127,0.5)); }
+      50% { filter: drop-shadow(0 0 20px rgba(127,255,127,0.8)); }
+    }
+    
+    body {
+      margin: 0;
+      background: #000;
+      color: #7fff7f;
+      font-family: "Space Mono", monospace;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      background: radial-gradient(circle at 50% 50%, 
+        rgba(20,40,20,1) 0%,
+        rgba(0,20,0,0.8) 50%,
+        rgba(0,0,0,1) 100%);
+    }
+    
+    .confirmation-container {
+      text-align: center;
+      padding: 40px;
+      background: rgba(0,20,0,0.6);
+      border-radius: 20px;
+      border: 2px solid rgba(127,255,127,0.3);
+      position: relative;
+      animation: float 6s ease-in-out infinite;
+      max-width: 800px;
+      backdrop-filter: blur(10px);
+    }
+    
+    .success-icon {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 20px;
+      animation: pulseGlow 3s ease-in-out infinite;
+    }
+    
+    .ticket-number {
+      font-size: 2em;
+      color: #afffaf;
+      text-shadow: 0 0 10px rgba(127,255,127,0.5);
+      margin: 20px 0;
+      font-family: "Courier New", monospace;
+      letter-spacing: 3px;
+    }
+    
+    .glitch-text {
+      animation: glitch 0.3s infinite;
+      color: #7fff7f;
+      text-shadow: 0 0 5px rgba(127,255,127,0.8);
+    }
+    
+    .quantum-details {
+      background: rgba(0,40,0,0.4);
+      padding: 20px;
+      border-radius: 10px;
+      margin: 20px 0;
+      text-align: left;
+    }
+    
+    .portal-link {
+      color: #7fff7f;
+      text-decoration: none;
+      padding: 10px 20px;
+      border: 1px solid rgba(127,255,127,0.5);
+      border-radius: 30px;
+      transition: all 0.3s;
+      display: inline-block;
+      margin-top: 20px;
+    }
+    
+    .portal-link:hover {
+      background: rgba(127,255,127,0.2);
+      transform: scale(1.1);
+    }
+    
+    .time-warning {
+      color: #ff7f7f;
+      font-size: 0.8em;
+      margin-top: 20px;
+      font-style: italic;
+    }
+    
+    .quantum-particles {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: -1;
+    }
+    </style>
+    </head>
+    <body>
+    
+    <div class="confirmation-container">
+      <svg class="success-icon" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="45" fill="none" stroke="#7fff7f" stroke-width="2"/>
+        <path d="M30,50 L45,65 L70,35" fill="none" stroke="#7fff7f" stroke-width="4"/>
+        <circle cx="50" cy="50" r="30" fill="none" stroke="#7fff7f" stroke-width="1" opacity="0.5"/>
+      </svg>
+    
+      <h1>Quantum Passage Confirmed</h1>
+      <div id="ticket-number" class="ticket-number"></div>
+    
+      <div class="quantum-details">
+        <p><span class="glitch-text">Congratulations!</span> Your interdimensional journey has been scheduled across multiple probability streams.</p>
+        
+        <h3>Departure Details:</h3>
+        <ul id="departure-details">
+          <li>Timeline Reference: <span class="glitch-text" id="timeline"></span></li>
+          <li>Dimensional Coordinates: <span class="glitch-text" id="coordinates"></span></li>
+          <li>Quantum Uncertainty Factor: <span id="uncertainty"></span></li>
+          <li>Reality Stream: <span class="glitch-text" id="reality-stream"></span></li>
+        </ul>
+    
+        <p>Your consciousness signature has been registered and synchronized with your chosen vessel.</p>
+      </div>
+    
+      <p class="time-warning">*Note: Due to quantum temporal mechanics, you may have already completed this journey in an alternate timeline.</p>
+    
+      <a href="/travel/preparation.html" class="portal-link">View Pre-Journey Preparation Guide</a>
+    </div>
+    
+    <svg class="quantum-particles" viewBox="0 0 100 100">
+      <defs>
+        <radialGradient id="particle-gradient" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" style="stop-color:rgba(127,255,127,0.8)"/>
+          <stop offset="100%" style="stop-color:rgba(127,255,127,0)"/>
+        </radialGradient>
+      </defs>
+      
+      <g id="particles"></g>
+    </svg>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const ticketNum = 'QT-∞-' + Math.random().toString(36).substr(2, 9).toUpperCase();
+      document.getElementById('ticket-number').textContent = ticketNum;
+    
+      document.getElementById('timeline').textContent = `α-${Math.floor(Math.random() * 999)}-Ω`;
+      document.getElementById('coordinates').textContent = 
+        `∆${Math.random().toFixed(6)}, ∇${Math.random().toFixed(6)}`;
+      document.getElementById('uncertainty').textContent = 
+        (Math.random() * 0.1).toFixed(4);
+      document.getElementById('reality-stream').textContent = 
+        ['Stable', 'Fluctuating', 'Metacausal'][Math.floor(Math.random() * 3)];
+    
+      const particlesGroup = document.getElementById('particles');
+      const particleCount = 30;
+    
+      for(let i = 0; i < particleCount; i++) {
+        const particle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+        const size = Math.random() * 2 + 1;
+        
+        particle.setAttribute('r', size);
+        particle.setAttribute('fill', 'url(#particle-gradient)');
+        
+        const x = Math.random() * 100;
+        const y = Math.random() * 100;
+        particle.setAttribute('cx', x);
+        particle.setAttribute('cy', y);
+        
+        const animateY = document.createElementNS("http://www.w3.org/2000/svg", "animate");
+        animateY.setAttribute('attributeName', 'cy');
+        animateY.setAttribute('values', `${y};${y-20};${y}`);
+        animateY.setAttribute('dur', `${3 + Math.random() * 4}s`);
+        animateY.setAttribute('repeatCount', 'indefinite');
+        
+        const animateX = document.createElementNS("http://www.w3.org/2000/svg", "animate");
+        animateX.setAttribute('attributeName', 'cx');
+        animateX.setAttribute('values', `${x};${x+10};${x}`);
+        animateX.setAttribute('dur', `${4 + Math.random() * 4}s`);
+        animateX.setAttribute('repeatCount', 'indefinite');
+        
+        particle.appendChild(animateY);
+        particle.appendChild(animateX);
+        particlesGroup.appendChild(particle);
+      }
+    
+      const ticketNumber = document.querySelector('.ticket-number');
+      setInterval(() => {
+        if(Math.random() < 0.1) {
+          const originalText = ticketNumber.textContent;
+          ticketNumber.textContent = originalText.split('').map(char => 
+            Math.random() < 0.3 ? String.fromCharCode(Math.floor(Math.random() * 26) + 65) : char
+          ).join('');
+          
+          setTimeout(() => {
+            ticketNumber.textContent = originalText;
+          }, 100);
+        }
+      }, 2000);
+    });
+    </script>
+    
+    </body></html>

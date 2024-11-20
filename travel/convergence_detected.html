@@ -1,0 +1,224 @@
+<html><head><base href="/travel/convergence_detected.html">
+    <meta charset="UTF-8">
+    <title>CONVERGENCE DETECTED | 5th Dimensional Tourism Bureau</title>
+    <style>
+    @keyframes glitch {
+      0% { transform: translate(0); text-shadow: none; }
+      20% { transform: translate(-5px, 5px); text-shadow: 3px 0 #ff0000, -3px 0 #00ffff; }
+      40% { transform: translate(5px, -5px); text-shadow: -3px 0 #00ff00, 3px 0 #ff00ff; }
+      60% { transform: translate(-5px, -5px); text-shadow: 3px 0 #0000ff, -3px 0 #ffff00; }
+      80% { transform: translate(5px, 5px); text-shadow: -3px 0 #ff00ff, 3px 0 #00ffff; }
+    }
+    
+    @keyframes scanline {
+      0% { transform: translateY(-100%); }
+      100% { transform: translateY(100%); }
+    }
+    
+    @keyframes flicker {
+      0% { opacity: 0.9; }
+      5% { opacity: 0.5; }
+      10% { opacity: 0.9; }
+      15% { opacity: 0.5; }
+      20% { opacity: 1; }
+    }
+    
+    @keyframes warning-pulse {
+      0% { background: rgba(255,0,0,0.3); box-shadow: 0 0 50px rgba(255,0,0,0.4) inset; }
+      50% { background: rgba(255,0,0,0.5); box-shadow: 0 0 100px rgba(255,0,0,0.4) inset; }
+      100% { background: rgba(255,0,0,0.3); box-shadow: 0 0 50px rgba(255,0,0,0.2) inset; }
+    }
+    
+    @keyframes scramble {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    
+    body {
+      margin: 0;
+      background: #000;
+      color: #fff;
+      font-family: "Courier New", monospace;
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: warning-pulse 2s infinite;
+      perspective: 1000px;
+    }
+    
+    .convergence-container {
+      text-align: center;
+      padding: 20px;
+      position: relative;
+      transform-style: preserve-3d;
+      animation: flicker 2s infinite;
+    }
+    
+    .warning-title {
+      font-size: 4em; 
+      animation: glitch 0.3s infinite;
+      margin-bottom: 20px; 
+      color: #ff0000;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-weight: 900;
+      text-shadow: 0 0 20px #ff0000;
+    }
+    
+    .error-code {
+      font-family: "Space Mono", monospace;
+      font-size: 2em; 
+      color: #ff4444;
+      margin: 15px 0; 
+      text-shadow: 0 0 15px #ff4444;
+    }
+    
+    .warning-text {
+      font-size: 1.4em; 
+      line-height: 1.4; 
+      max-width: 800px;
+      margin: 0 auto;
+      color: #ffffff;
+      text-shadow: 0 0 10px rgba(255,255,255,0.8);
+      opacity: 0;
+      animation: scramble 0.5s forwards;
+      animation-delay: calc(var(--i) * 0.1s);
+    }
+    
+    .warning-text-2 {
+      font-size: 0.8em; 
+      line-height: 1.4; 
+      max-width: 800px;
+      margin: 0 auto;
+      color: #ffffff;
+      text-shadow: 0 0 10px rgba(255,255,255,0.8);
+      opacity: 0;
+      animation: scramble 0.5s forwards;
+      animation-delay: calc(var(--i) * 0.1s);
+    }
+    
+      
+    .reality-status {
+      border: 2px solid #ff0000;
+      padding: 20px; 
+      margin: 20px auto; 
+      max-width: 800px;
+      background: rgba(255,0,0,0.1);
+      box-shadow: 0 0 30px rgba(255,0,0,0.3);
+      backdrop-filter: blur(5px);
+      transform: perspective(1000px) rotateX(5deg);
+    }
+    
+    .countdown {
+      font-size: 4em; 
+      margin: 20px 0; 
+      font-weight: bold;
+      color: #ff0000;
+      text-shadow: 0 0 30px #ff0000;
+      animation: glitch 0.5s infinite;
+    }
+    
+    .scanline {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 10px;
+      background: rgba(255,255,255,0.1);
+      animation: scanline 4s linear infinite;
+      pointer-events: none;
+    }
+    
+    .static-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIj4KICA8ZmlsdGVyIGlkPSJub2lzZSI+CiAgICA8ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iMC42NSIgbnVtT2N0YXZlcz0iMyIgc3RpdGNoVGlsZXM9InN0aXRjaCIvPgogIDwvZmlsdGVyPgogIDxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiBmaWx0ZXI9InVybCgjbm9pc2UpIiBvcGFjaXR5PSIwLjA1Ii8+Cjwvc3ZnPg==');
+      pointer-events: none;
+      opacity: 0.1;
+      mix-blend-mode: screen;
+    }
+    </style>
+    </head>
+    <body>
+    
+    <div class="static-overlay"></div>
+    <div class="scanline"></div>
+    
+    <div class="convergence-container">
+      <h1 class="warning-title">CONVERGENCE DETECTED</h1>
+      
+      <div class="error-code">ERR_REALITY_OVERLAP_5928β</div>
+      
+      <div class="reality-status">
+        <p class="warning-text" style="--i:1">⚠️ ALERT: Multiple timeline signatures detected in your quantum signature</p>
+        <p class="warning-text" style="--i:2">SEVERITY: CRITICAL</p>
+        <p class="warning-text" style="--i:3">PARADOX RISK: 89.3%</p>
+        <p class="warning-text" style="--i:4">TIMELINE CORRUPTION: SEVERE</p>
+        <p class="warning-text" style="--i:5">REALITY FABRIC INTEGRITY: 32%</p>
+      </div>
+      
+      <p class="warning-text" style="--i:6">Your consciousness pattern has been detected in multiple concurrent timelines.</p>
+      <p class="warning-text" style="--i:7">Emergency de-convergence protocols have been initiated.</p>
+      <p class="warning-text" style="--i:8">Quantum state collapse imminent. Stand by for timeline separation.</p>
+      <p class="warning-text-2" style="--i:9">Warning: Memory fragmentation may occur during the process.</p>
+      
+      <div class="countdown" id="countdown">15</div>
+      
+      <p class="warning-text" style="--i:10">Please remain calm while we separate your quantum states.</p>
+      <p class="warning-text" style="--i:11">Do not attempt to observe your own existence during this process.</p>
+      <p class="warning-text-2" style="--i:12">Avoid thinking about paradoxes or temporal causality loops.</p>
+      <p class="warning-text-2" style="--i:13">⚠️ Your warranty may be void if you exist in more than three timelines simultaneously.</p>
+    </div>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const countdown = document.getElementById('countdown');
+      let timeLeft = 15;
+      
+      const timer = setInterval(() => {
+        timeLeft--;
+        countdown.textContent = timeLeft;
+        
+        if (timeLeft < 5) {
+          document.body.style.animation = 'warning-pulse 0.5s infinite';
+        }
+        
+        if (timeLeft <= 0) {
+          clearInterval(timer);
+          window.location.href = '/';
+        }
+      }, 1000);
+      
+      setInterval(() => {
+        const warningTexts = document.querySelectorAll('.warning-text');
+        const randomText = warningTexts[Math.floor(Math.random() * warningTexts.length)];
+        randomText.style.transform = 'skew(2deg)';
+        setTimeout(() => {
+          randomText.style.transform = 'skew(0deg)';
+        }, 100);
+      }, 2000);
+      
+      setInterval(() => {
+        const static = document.querySelector('.static-overlay');
+        static.style.opacity = '0.3';
+        setTimeout(() => {
+          static.style.opacity = '0.1';
+        }, 100);
+      }, 3000);
+      container.style.transform = `perspective(1000px) rotateX(1deg)`;
+      setInterval(() => {
+        const container = document.querySelector('.convergence-container');
+        container.style.transform = `perspective(1000px) rotateX(1deg) translate(${Math.random() * 10 - 5}px, ${Math.random() * 10 - 5}px)`;
+        setTimeout(() => {
+          container.style.transform = 'perspective(1000px) rotateX(1deg) translate(0, 0)';
+        }, 100);
+      }, 5000);
+    });
+    </script>
+    
+    </body></html>
