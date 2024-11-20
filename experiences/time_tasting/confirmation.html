@@ -1,0 +1,267 @@
+<html><head><base href="/experiences/time_tasting/confirmation.html">
+    <meta charset="UTF-8">
+    <title>Booking Confirmation | 5th Dimensional Tourism Bureau</title>
+    <style>
+    @keyframes dimensionalShift {
+      0% { transform: perspective(1000px) rotateY(0deg); }
+      50% { transform: perspective(1000px) rotateY(10deg); }
+      100% { transform: perspective(1000px) rotateY(0deg); }
+    }
+    
+    @keyframes tasteParticle {
+      0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+      50% { transform: translate(calc(-50% + var(--x)), calc(-50% + var(--y))) scale(1); opacity: 1; }
+      100% { transform: translate(calc(-50% + var(--x) * 2), calc(-50% + var(--y) * 2)) scale(0); opacity: 0; }
+    }
+    
+    @keyframes glitch {
+      0% { transform: translate(0); }
+      20% { transform: translate(-2px, 2px); }
+      40% { transform: translate(2px, -2px); }
+      60% { transform: translate(-2px, -2px); }
+      80% { transform: translate(2px, 2px); }
+      100% { transform: translate(0); }
+    }
+    
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #13001e, #240041);
+      color: #fff;
+      font-family: "Space Mono", monospace;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+    
+    .confirmation-container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      animation: dimensionalShift 10s infinite ease-in-out;
+      position: relative;
+    }
+    
+    .confirmation-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    
+    .confirmation-header h1 {
+      font-size: 2.5em;
+      color: #f0f0f0;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+      animation: glitch 3s infinite;
+    }
+    
+    .booking-details {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 30px;
+      border-radius: 15px;
+      margin: 20px 0;
+    }
+    
+    .detail-row {
+      display: flex;
+      justify-content: space-between;
+      margin: 15px 0;
+      padding: 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .detail-label {
+      color: #a988ff;
+      font-weight: bold;
+    }
+    
+    .detail-value {
+      color: #fff;
+      text-align: right;
+    }
+    
+    .quantum-code {
+      font-family: 'Courier New', monospace;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 10px;
+      margin: 20px 0;
+      text-align: center;
+      font-size: 1.5em;
+      letter-spacing: 3px;
+    }
+    
+    .temporal-warning {
+      color: #ff6b6b;
+      text-align: center;
+      margin: 20px 0;
+      padding: 15px;
+      border: 1px solid #ff6b6b;
+      border-radius: 10px;
+    }
+    
+    .taste-particle {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      pointer-events: none;
+      animation: tasteParticle 3s linear forwards;
+    }
+    
+    .download-button {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      background: linear-gradient(45deg, #7928ca, #ff0080);
+      border: none;
+      border-radius: 30px;
+      color: white;
+      font-size: 1.1em;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      margin-top: 30px;
+      transition: transform 0.3s;
+    }
+    
+    .download-button:hover {
+      transform: scale(1.05);
+    }
+    
+    .timeline-visual {
+      height: 5px;
+      background: linear-gradient(90deg, #7928ca, #ff0080);
+      margin: 30px 0;
+      position: relative;
+      border-radius: 5px;
+    }
+    
+    .timeline-marker {
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      background: #fff;
+      border-radius: 50%;
+      top: -5px;
+      transform: translateX(-50%);
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+    
+    </style>
+    </head>
+    <body>
+    
+    <div class="confirmation-container" id="confirmationContainer">
+      <div class="confirmation-header">
+        <h1>T̸̪̩͉̋͆i̷͚̿m̸̡̛̖̒ē̷͎̝ Taste Confirmation</h1>
+      </div>
+    
+      <div class="booking-details">
+        <div class="detail-row">
+          <span class="detail-label">Consciousness ID:</span>
+          <span class="detail-value" id="consciousnessId">Loading...</span>
+        </div>
+    
+        <div class="detail-row">
+          <span class="detail-label">Temporal Direction:</span>
+          <span class="detail-value" id="temporalDirection">Loading...</span>
+        </div>
+    
+        <div class="detail-row">
+          <span class="detail-label">Selected Flavor:</span>
+          <span class="detail-value" id="selectedFlavor">Loading...</span>
+        </div>
+    
+        <div class="detail-row">
+          <span class="detail-label">Duration:</span>
+          <span class="detail-value" id="duration">Loading...</span>
+        </div>
+    
+        <div class="timeline-visual">
+          <div class="timeline-marker" style="left: 0%"></div>
+          <div class="timeline-marker" style="left: 33%"></div>
+          <div class="timeline-marker" style="left: 66%"></div>
+          <div class="timeline-marker" style="left: 100%"></div>
+        </div>
+      </div>
+    
+      <div class="quantum-code">
+        QT-<span id="quantumCode">∆◊○□∞</span>
+      </div>
+    
+      <div class="temporal-warning">
+        ⚠ IMPORTANT: Please keep your quantum entanglement stabilized during the experience.
+        Time-taste side effects may include temporary omnipresence and flavor prescience.
+      </div>
+    
+      <a href="https://www.dropbox.com/scl/fi/oe03wasbuiyy0a1pac5u4/TEMPORAL_TASTE_EXPERIENCE_WAIVER_AND_LIABILITY_RELEASE.pdf?rlkey=pohqay2k57pla8wxs81rydgxh&st=p8ktby36&dl=1" target="_blank" class="download-button">
+        Download Temporal Waiver Form
+      </a>
+    </div>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Parse URL parameters
+      const params = new URLSearchParams(window.location.search);
+      
+      // Update booking details
+      document.getElementById('consciousnessId').textContent = params.get('consciousnessId') || 'X-0000-∆◊○';
+      document.getElementById('temporalDirection').textContent = params.get('temporalPreference') || 'Forward';
+      document.getElementById('duration').textContent = `${params.get('duration') || '1'} Temporal Hours`;
+    
+      // Map flavor codes to descriptive names
+      const flavorMap = {
+        'renaissance': 'Renaissance Era (Artistic Revolution Blend)',
+        'future-2300': 'Neo-Tokyo 2300 (Cybernetic Fusion)',
+        'dinosaur': 'Late Cretaceous (Prehistoric Essence)',
+        'atlantis': 'Lost Atlantis (Aquatic Civilization)'
+      };
+      
+      document.getElementById('selectedFlavor').textContent = 
+        flavorMap[params.get('flavor')] || 'Standard Temporal Blend';
+    
+      // Generate random quantum code
+      const quantumCharacters = '∆◊○□∞αβγδε';
+      const generateQuantumCode = () => {
+        return Array.from({length: 5}, () => 
+          quantumCharacters[Math.floor(Math.random() * quantumCharacters.length)]
+        ).join('');
+      };
+      
+      setInterval(() => {
+        document.getElementById('quantumCode').textContent = generateQuantumCode();
+      }, 3000);
+    
+      // Create taste particles
+      const createTasteParticle = () => {
+        const particle = document.createElement('div');
+        particle.className = 'taste-particle';
+        
+        const x = (Math.random() - 0.5) * 200;
+        const y = (Math.random() - 0.5) * 200;
+        const hue = Math.random() * 360;
+        
+        particle.style.setProperty('--x', x + 'px');
+        particle.style.setProperty('--y', y + 'px');
+        particle.style.background = `hsl(${hue}, 70%, 50%)`;
+        
+        document.querySelector('.confirmation-container').appendChild(particle);
+        particle.addEventListener('animationend', () => particle.remove());
+      };
+    
+      setInterval(createTasteParticle, 300);
+    
+      // Timeline marker animation
+      const markers = document.querySelectorAll('.timeline-marker');
+      let currentMarker = 0;
+    
+      setInterval(() => {
+        markers.forEach(marker => marker.style.background = '#fff');
+        markers[currentMarker].style.background = '#7928ca';
+        currentMarker = (currentMarker + 1) % markers.length;
+      }, 1000);
+    });
+    </script>
+    
+    </body></html>

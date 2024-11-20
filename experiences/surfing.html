@@ -1,0 +1,445 @@
+<html><head><base href="/experiences/surfing.html">
+    <meta charset="UTF-8">
+    <title>Paradox Surfing Booking | 5th Dimensional Tourism Bureau</title>
+    <style>
+    @keyframes reality-warp {
+      0% { transform: perspective(1000px) rotateX(0deg); }
+      50% { transform: perspective(1000px) rotateX(10deg); }
+      100% { transform: perspective(1000px) rotateX(0deg); }
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+    
+    @keyframes glitch {
+      0% { transform: skew(0deg); }
+      20% { transform: skew(-10deg); filter: hue-rotate(90deg); }
+      40% { transform: skew(10deg); filter: hue-rotate(180deg); }
+      60% { transform: skew(-5deg); filter: hue-rotate(270deg); }
+      80% { transform: skew(5deg); filter: hue-rotate(360deg); }
+    }
+    
+    body {
+      margin: 0;
+      background: #000;
+      color: #fff;
+      font-family: "Space Mono", monospace;
+      overflow-x: hidden;
+      min-height: 100vh;
+      background: linear-gradient(45deg, #000, #1a0033, #000);
+    }
+    
+    .booking-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px;
+      animation: reality-warp 10s infinite;
+    }
+    
+    .warning-banner {
+      background: rgba(255, 0, 0, 0.2);
+      border: 2px solid #ff0000;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 10px;
+      text-align: center;
+      animation: glitch 5s infinite;
+    }
+    
+    .timeline-viewer {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      padding: 30px;
+      margin: 20px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .timeline-strand {
+      height: 2px;
+      background: linear-gradient(90deg, #ff00ff, #00ffff);
+      position: relative;
+      margin: 20px 0;
+    }
+    
+    .timeline-point {
+      width: 10px;
+      height: 10px;
+      background: #fff;
+      border-radius: 50%;
+      position: absolute;
+      top: -4px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .timeline-point:hover {
+      transform: scale(1.5);
+      box-shadow: 0 0 20px #fff;
+    }
+    
+    .timeline-point.selected {
+      background: #ff00ff;
+      transform: scale(2);
+      box-shadow: 0 0 30px #ff00ff;
+    }
+    
+    .timeline-detail {
+      position: absolute;
+      background: rgba(0, 0, 0, 0.9);
+      border: 1px solid #ff00ff;
+      padding: 10px;
+      border-radius: 5px;
+      transform: translateY(-40px);
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+      color: #fff;
+      text-align: center;
+      width: 200px;
+      margin-left: -100px;
+    }
+    
+    .timeline-point:hover .timeline-detail {
+      opacity: 1;
+    }
+    
+    .waiver-form {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 15px;
+      margin-top: 40px;
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 10px;
+      color: #ff00ff;
+    }
+    
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 5px;
+      color: #fff;
+      font-family: inherit;
+    }
+    
+    .paradox-meter {
+      height: 30px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      overflow: hidden;
+      margin: 20px 0;
+    }
+    
+    .paradox-level {
+      height: 100%;
+      background: linear-gradient(90deg, #00ff00, #ffff00, #ff0000);
+      width: 75%;
+      transition: width 1s;
+    }
+    
+    .submit-button {
+      background: linear-gradient(45deg, #ff00ff, #00ffff);
+      border: none;
+      padding: 15px 30px;
+      border-radius: 30px;
+      color: #fff;
+      font-size: 1.2em;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-top: 20px;
+    }
+    
+    .submit-button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 30px rgba(255, 0, 255, 0.5);
+    }
+    
+    .quantum-signature {
+      position: relative;
+      height: 100px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      margin: 20px 0;
+      cursor: crosshair;
+    }
+    
+    .temporal-echo {
+      position: absolute;
+      pointer-events: none;
+      opacity: 0.5;
+      mix-blend-mode: screen;
+    }
+    
+    .probability-cloud {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1000;
+    }
+    
+    .ancestor-check {
+      background: rgba(255, 0, 0, 0.1);
+      padding: 20px;
+      border-radius: 10px;
+      margin: 20px 0;
+    }
+    
+    .causality-warning {
+      color: #ff0000;
+      font-style: italic;
+      animation: float 4s infinite;
+    }
+    
+    </style>
+    </head>
+    <body>
+    
+    <div class="booking-container">
+      <div class="warning-banner">
+        <h1>⚠ EXTREME CAUSALITY RISK ⚠</h1>
+        <p>You are about to book a Paradox Surfing experience. This activity may result in becoming your own ancestor.</p>
+      </div>
+    
+      <div class="timeline-viewer">
+        <h2>Select Your Paradox Entry Point</h2>
+        <div class="timeline-strand">
+          <div class="timeline-point" data-year="Ỹ̷̡̛̮̤̱͚͕̜͎̳̜̱͈̱̻̝̬̆͋̒̈̉̔̃̓͛͛̔̈́͌͝ear: ∞1929.█24" style="left: 10%">
+            <div class="timeline-detail">The Great Depression<br>Timeline Variance: 78.3%<br>Paradox Level: MODERATE</div>
+          </div>
+          <div class="timeline-point" data-year="Y̸ear: 1̶9̴4̷5̴.∑⌬" style="left: 30%">
+            <div class="timeline-detail">World War II Nexus Point<br>Timeline Variance: 92.1%<br>Paradox Level: SEVERE</div>
+          </div>
+          <div class="timeline-point" data-year="¥3@r: 1̵̧̛̠̲̖͎̝͚̬̭̣̰̩̩̲̂̈́̈͌̆̈́̃͑̈́̊̕͝9̷̯͓̘̤̗̩͖̲̯̳̊͜6̷̡̱͓͓̹̲̣͚̜̱̦̎̒̓̏̈̓̄͘͜9̴̺̞̝͉͕̣̜̖̝̫̆̈.❧◊" style="left: 50%">
+            <div class="timeline-detail">Moon Landing Divergence<br>Timeline Variance: 45.6%<br>Paradox Level: CRITICAL</div>
+          </div>
+          <div class="timeline-point" data-year="Ýëår: 2̵̵̶̷̴̵̴̡̢̧̡̛̛͚͚̘͎͎̝͚̬̭̣̰̩̩̲̂̈́̈͌̆̈́̃͑̈́̊̕͝000.exe" style="left: 70%">
+            <div class="timeline-detail">Y2K Temporal Cascade<br>Timeline Variance: 66.7%<br>Paradox Level: UNSTABLE</div>
+          </div>
+          <div class="timeline-point" data-year="Year: 2̷0̷2̷2̷.███" style="left: 90%">
+            <div class="timeline-detail">Crypto Singularity<br>Timeline Variance: 89.9%<br>Paradox Level: QUANTUM</div>
+          </div>
+        </div>
+        <p>Current Timeline Stability: <span id="stability">73.6%</span></p>
+        <p>Selected Entry Point: <span id="selectedYear">None</span></p>
+      </div>
+    
+      <div class="waiver-form">
+        <h2>Multiversal Liability Waiver</h2>
+        
+        <div class="form-group">
+          <label>Legal Name (All Timeline Variants)</label>
+          <input type="text" placeholder="Enter names from all known timelines...">
+        </div>
+    
+        <div class="form-group">
+          <label>Quantum State Identification Number</label>
+          <input type="text" placeholder="Format: ∞-XX-∆∆-◊◊">
+        </div>
+    
+        <div class="ancestor-check">
+          <h3>Ancestral Paradox Check</h3>
+          <p>Please confirm you understand the following:</p>
+          <label>
+            <input type="checkbox"> I accept that I may become my own grandfather
+          </label>
+          <label>
+            <input type="checkbox"> I understand that family reunions may become temporally complex
+          </label>
+          <label>
+            <input type="checkbox"> I acknowledge that my birth certificate may spontaneously rewrite itself
+          </label>
+        </div>
+    
+        <div class="paradox-meter">
+          <div class="paradox-level" id="paradoxMeter"></div>
+        </div>
+        <p>Current Paradox Intensity: <span id="paradoxLevel">SEVERE</span></p>
+    
+        <div class="form-group">
+          <label>Quantum Signature</label>
+          <div class="quantum-signature" id="signatureArea"></div>
+        </div>
+    
+        <p class="causality-warning">
+          ⚠ Warning: By proceeding, you accept that your existence may become probabilistic rather than deterministic
+        </p>
+    
+        <button class="submit-button" onclick="submitForm()">Sign Across All Timelines</button>
+      </div>
+    </div>
+    
+    <div class="probability-cloud"></div>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const signatureArea = document.querySelector('#signatureArea');
+      let isDrawing = false;
+      let temporalEchoes = [];
+    
+      signatureArea.addEventListener('mousedown', startDrawing);
+      signatureArea.addEventListener('mousemove', draw);
+      signatureArea.addEventListener('mouseup', stopDrawing);
+      signatureArea.addEventListener('mouseleave', stopDrawing);
+    
+      function startDrawing(e) {
+        isDrawing = true;
+        draw(e);
+      }
+    
+      function draw(e) {
+        if (!isDrawing) return;
+        
+        const echo = document.createElement('div');
+        echo.className = 'temporal-echo';
+        echo.style.width = '4px';
+        echo.style.height = '4px';
+        echo.style.background = `hsl(${Math.random() * 360}, 100%, 50%)`;
+        echo.style.position = 'absolute';
+        echo.style.left = e.offsetX + 'px';
+        echo.style.top = e.offsetY + 'px';
+        echo.style.borderRadius = '50%';
+        
+        signatureArea.appendChild(echo);
+        temporalEchoes.push(echo);
+    
+        for (let i = 0; i < 3; i++) {
+          const quantumEcho = echo.cloneNode();
+          quantumEcho.style.left = (e.offsetX + (Math.random() - 0.5) * 20) + 'px';
+          quantumEcho.style.top = (e.offsetY + (Math.random() - 0.5) * 20) + 'px';
+          signatureArea.appendChild(quantumEcho);
+          temporalEchoes.push(quantumEcho);
+        }
+      }
+    
+      function stopDrawing() {
+        isDrawing = false;
+      }
+    
+      const paradoxMeter = document.querySelector('#paradoxMeter');
+      setInterval(() => {
+        paradoxMeter.style.width = Math.random() * 100 + '%';
+      }, 1000);
+    
+      const timelinePoints = document.querySelectorAll('.timeline-point');
+      const selectedYearDisplay = document.querySelector('#selectedYear');
+      
+      timelinePoints.forEach(point => {
+        point.addEventListener('click', () => {
+          timelinePoints.forEach(p => p.classList.remove('selected'));
+          point.classList.add('selected');
+    
+          const year = point.dataset.year;
+          selectedYearDisplay.innerHTML = '';
+          let i = 0;
+          const glitchInterval = setInterval(() => {
+            if (i < year.length) {
+              selectedYearDisplay.innerHTML += year[i];
+              i++;
+            } else {
+              clearInterval(glitchInterval);
+            }
+          }, 50);
+    
+          document.querySelector('#stability').textContent = 
+            (Math.random() * 20 + 60).toFixed(1) + '%';
+    
+          const distortion = document.createElement('div');
+          distortion.style.position = 'fixed';
+          distortion.style.top = '0';
+          distortion.style.left = '0';
+          distortion.style.width = '100%';
+          distortion.style.height = '100%';
+          distortion.style.background = `radial-gradient(circle at ${point.offsetLeft}px ${point.offsetTop}px, 
+            rgba(255,0,255,0.2) 0%, 
+            rgba(0,0,0,0) 70%)`;
+          distortion.style.pointerEvents = 'none';
+          distortion.style.zIndex = '999';
+          document.body.appendChild(distortion);
+          
+          setTimeout(() => distortion.remove(), 1000);
+        });
+      });
+    
+      document.querySelectorAll('.timeline-point').forEach(point => {
+        point.addEventListener('click', () => {
+          document.querySelector('#stability').textContent = 
+            (Math.random() * 20 + 60).toFixed(1) + '%';
+        });
+      });
+    
+      const cloud = document.querySelector('.probability-cloud');
+      document.addEventListener('mousemove', (e) => {
+        const particle = document.createElement('div');
+        particle.style.position = 'absolute';
+        particle.style.left = e.clientX + 'px';
+        particle.style.top = e.clientY + 'px';
+        particle.style.width = '2px';
+        particle.style.height = '2px';
+        particle.style.background = `hsl(${Math.random() * 360}, 100%, 70%)`;
+        particle.style.borderRadius = '50%';
+        particle.style.pointerEvents = 'none';
+        
+        cloud.appendChild(particle);
+        
+        setTimeout(() => {
+          particle.style.transition = 'all 1s';
+          particle.style.transform = `translate(${(Math.random() - 0.5) * 100}px, ${(Math.random() - 0.5) * 100}px)`;
+          particle.style.opacity = '0';
+        }, 50);
+        
+        setTimeout(() => particle.remove(), 1000);
+      });
+    });
+
+    var warning = null;
+    var timer = 6000;
+    
+    function submitForm() {
+      warning = document.createElement('div');
+      warning.style.position = 'fixed';
+      warning.style.top = '50%';
+      warning.style.left = '50%';
+      warning.style.transform = 'translate(-50%, -50%)';
+      warning.style.background = 'rgba(255, 0, 0, 0.9)';
+      warning.style.padding = '20px';
+      warning.style.borderRadius = '10px';
+      warning.style.textAlign = 'center';
+      warning.innerHTML = `
+        <h2>TEMPORAL PARADOX DETECTED</h2>
+        <p>Your booking has created a class-3 temporal anomaly.</p>
+        <p>Please stand by while we stabilize your timeline...</p>
+      `;
+      document.body.appendChild(warning);
+      
+      updateTimer();
+    }
+
+    function updateTimer() {
+      if (timer != 0) timer = timer - 60;
+      setTimeout(() => {
+        if (timer == 0 ) {window.location.href = '/experiences/surfing/confirmation.html'; timer = 0;}
+        warning.innerHTML = `
+        <h2>TEMPORAL PARADOX DETECTED</h2>
+        <p>Your booking has created a class-3 temporal anomaly.</p>
+        <p>Please stand by while we stabilize your timeline...</p>
+        <p>`+(6000-timer)/60+`%</p>
+        `;
+        updateTimer();
+      }, 60);
+    }
+    </script>
+    
+    </body></html>

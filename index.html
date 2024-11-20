@@ -1,0 +1,387 @@
+<html><head><base href="/">
+    <meta charset="UTF-8">
+    <title>Welcome to Hyperspace Nexus Ω | 5th Dimensional Tourism Bureau</title>
+    <style>
+    :root {
+      --glow: 0 0 10px rgba(255,255,255,0.8), 0 0 20px rgba(100,200,255,0.4);
+    }
+    
+    body {
+      margin: 0;
+      background: #000;
+      color: #fff;
+      font-family: "Space Mono", monospace;
+      overflow-x: hidden;
+      perspective: 1000px;
+    }
+    
+    .non-euclidean-container {
+      min-height: 100vh;
+      background: 
+        radial-gradient(circle at 50% 50%, 
+          rgba(20,20,40,1) 0%,
+          rgba(10,10,30,0.8) 50%,
+          rgba(5,5,20,0.6) 100%);
+      animation: dimensionShift 20s infinite linear;
+    }
+    
+    .alien {
+      position: fixed;
+      width: 50px;
+      height: 50px;
+      pointer-events: none;
+      z-index: 1000;
+    }
+    
+    .alien svg {
+      width: 100%;
+      height: 100%;
+      animation: bounce 2s infinite ease-in-out;
+    }
+    
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+    
+    @keyframes dimensionShift {
+      0% { filter: hue-rotate(0deg) saturate(1); }
+      50% { filter: hue-rotate(180deg) saturate(1.5); }
+      100% { filter: hue-rotate(360deg) saturate(1); }
+    }
+    
+    .floating-text {
+      position: absolute;
+      font-size: 1.5rem;
+      color: rgba(255,255,255,0.8);
+      text-shadow: var(--glow);
+      pointer-events: none;
+      animation: float 10s infinite ease-in-out;
+      transform-style: preserve-3d;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateZ(0) rotate(0deg); }
+      50% { transform: translateZ(100px) rotate(180deg); }
+    }
+    
+    .nav-portal {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 20px;
+      z-index: 1000;
+      background: rgba(0,0,0,0.5);
+      padding: 10px;
+      border-radius: 30px;
+      backdrop-filter: blur(5px);
+    }
+    
+    .portal-link {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 20px;
+      border: 2px solid rgba(255,255,255,0.2);
+      border-radius: 30px;
+      transition: all 0.3s;
+      text-shadow: var(--glow);
+    }
+    
+    .portal-link:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.8);
+      transform: scale(1.1) translateZ(20px);
+    }
+    
+    .welcome-message {
+      position: relative;
+      max-width: 800px;
+      margin: 100px auto;
+      padding: 40px;
+      background: rgba(0,0,0,0.6);
+      border-radius: 20px;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+    }
+    
+    .dimensional-glyph {
+      width: 100px;
+      height: 100px;
+      margin: 20px auto;
+      animation: rotate 10s infinite linear;
+    }
+    
+    @keyframes rotate {
+      from { transform: rotateY(0deg) rotateX(0deg); }
+      to { transform: rotateY(360deg) rotateX(360deg); }
+    }
+    
+    .attraction-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      padding: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .attraction-card {
+      background: rgba(0,0,0,0.7);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 15px;
+      padding: 20px;
+      transition: all 0.5s;
+      transform-style: preserve-3d;
+      cursor: pointer;
+    }
+    
+    .attraction-card:hover {
+      transform: translateZ(30px) rotateX(5deg);
+      box-shadow: 0 0 30px rgba(255,255,255,0.2);
+    }
+    
+    .attraction-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      filter: saturate(0.8) contrast(1.2);
+      transition: filter 0.3s;
+    }
+    
+    .attraction-card:hover .attraction-image {
+      filter: saturate(1.2) contrast(1.4);
+    }
+    
+    .price {
+      color: #7fff7f;
+      font-family: "Space Mono", monospace;
+      font-size: 1.2em;
+      margin-top: 10px;
+    }
+    
+    .warning {
+      color: #ff7f7f;
+      font-size: 0.8em;
+      font-style: italic;
+    }
+    
+    .book-room-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 40px 0;
+    }
+    
+    .book-room-btn {
+      background: linear-gradient(45deg, #4ff, #f4f);
+      color: #fff;
+      padding: 20px 40px;
+      border: none;
+      border-radius: 30px;
+      font-size: 1.5rem;
+      font-family: "Space Mono", monospace;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-shadow: var(--glow);
+      box-shadow: 0 0 20px rgba(255,255,255,0.2);
+      text-decoration: none; /* Make sure it looks like a button */
+      display: inline-block; /* Allow padding to apply correctly */
+    }
+    
+    .book-room-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 30px rgba(255,255,255,0.4);
+    }
+    </style>
+    </head>
+    <body>
+    
+    <div class="non-euclidean-container">
+      <nav class="nav-portal">
+        <a href="/experiences.html" class="portal-link">∆xperiences</a>
+        <a href="/transport.html" class="portal-link">Quantum Transit</a>
+        <a href="/contact.html" class="portal-link">Contact Us</a>
+      </nav>
+    
+      <div class="welcome-message" style="margin-top: 200px;">
+        <svg class="dimensional-glyph" viewBox="0 0 100 100">
+          <defs>
+            <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#4ff;stop-opacity:1"></stop>
+              <stop offset="100%" style="stop-color:#f4f;stop-opacity:1"></stop>
+            </linearGradient>
+          </defs>
+          <path d="M50 10 L90 90 L10 90 Z" fill="url(#glow)"></path>
+          <circle cx="50" cy="50" r="20" fill="none" stroke="url(#glow)" stroke-width="2"></circle>
+        </svg>
+        <h1>W̷̘̭̓ę̷̮̈́l̸̰͒c̷̢̈́o̶͓͗m̶̦̈́e̷͚̓ to the Hyperspace Nexus Ω</h1>
+        <p>Experience reality from unprecedented angles in our non-euclidean resort dimensions.</p>
+        <p>Current Temporal Weather: ∞°К | Probability of Existence: 98.3%</p>
+      </div>
+    
+      <div class="attraction-grid">
+        <div class="attraction-card">
+          <img alt="infinite corridor with repeating doors stretching to infinity, liminal space photography" src="/images/booking1.jpg" width="300" height="200" class="attraction-image">
+          <h3>The Non-Euclidean Suites</h3>
+          <p>Experience comfort in our paradoxical rooms where every corner leads to a different dimension. Each suite features:</p>
+          <ul>
+            <li>Beds with Schrödinger's pillows - simultaneously soft and firm</li>
+            <li>Windows overlooking yesterday and tomorrow</li>
+            <li>Bathrooms that occasionally swap locations with other rooms</li>
+          </ul>
+          <p class="price">From ∞ Void Credits/night</p>
+          <p class="warning">*We cannot guarantee which version of you will check out</p>
+        </div>
+    
+        <div class="attraction-card">
+          <img alt="empty swimming pool at night with strange lighting, liminal space" src="/images/booking2.jpg" width="300" height="200" class="attraction-image">
+          <h3>The Möbius Pool</h3>
+          <p>Our signature infinity pool loops through the 5th dimension. Features include:</p>
+          <ul>
+            <li>Water that flows upward</li>
+            <li>Time-dilated deep end (1 minute = 3 hours)</li>
+            <li>Quantum lifeguards who exist in superposition</li>
+          </ul>
+          <p class="price">Complimentary with stay</p>
+          <p class="warning">*Swimming ability in multiple dimensions required</p>
+        </div>
+    
+        <div class="attraction-card">
+          <img alt="empty retail space with strange lighting and mirrors, liminal space" src="/images/booking3.jpg" width="300" height="200" class="attraction-image">
+          <h3>The Probability Mall</h3>
+          <p>Shop in our reality-bending retail space where:</p>
+          <ul>
+            <li>Stores exist only when observed</li>
+            <li>Items may or may not have been purchased by you already</li>
+            <li>Prices are determined by quantum fluctuations</li>
+          </ul>
+          <p class="price">Entry: 5 Consciousness Tokens</p>
+          <p class="warning">*Lost shoppers will be found in parallel dimensions</p>
+        </div>
+      </div>
+    
+      <div class="book-room-container">
+        <a href="/booking.html" class="book-room-btn">B̷o̷o̷k̷ Y̷o̷u̷r̷ N̷o̷n̷-̷E̷u̷c̷l̷i̷d̷e̷a̷n̷ S̷t̷a̷y̷</a>
+      </div>
+    </div>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const phrases = [
+        "V̸̨̛̛̛͎̟̮͖̱̮̬͚̫̝͉̰̭̪̖̪̯̮̙̎̊̈́̔͐̈̈́̈́͊̈́̈̊͗̎̊̎̏̔͊̄̀̐̉̈͒̕͜͝͝ơ̵̡̢̨̧̛͖͍͈͉͚͙̺̹̖̬̟̱̼̙̗̲̮̝̥̟͉̪̮̼̩̮̪̲̘͕͌̎̿̍͆̈́̈́͊̽͌̀͌̓̊͐͑̒͐̊̿̈́̅͋̾̍̈̓̌̃̆̉̃̚͘͜͜͝͝į̶̢̢̛̛̛̺͉͎̟̗̼̯͚̯̫̯̤̭̺͍͕̻̺̳̤̫̂̈́̓͌͗͐̀̒̓̊̄͗̐̀͐̄̈͐̒͗̈́̏͋̒̎͆̑̔̾̕͜͜",
+        "∰∭∬∫∮∯",
+        "ʒ̵̧̭͉̝͉̹̈́̈́͒̀̓̊̈̕͝ͅɐ̷̡̡͓̖͇͚̼͓̰̾̒̈́̎̈́̒͘͝ɹ̶͉̻̲̼͎̯̆̄̏̊̈́̾̃̐̕͜͜ͅƃ̵̹͇͙͍̝͊̈̋̆̉̈́̒̂̕ơ̵̢̢̲͈͖̠̱̎̓̋̋͌̋͘͝n",
+        "🗝️➟✧✴️",
+      ];
+      
+      function createFloatingText() {
+        const text = document.createElement('div');
+        text.className = 'floating-text';
+        text.textContent = phrases[Math.floor(Math.random() * phrases.length)];
+        text.style.left = Math.random() * window.innerWidth + 'px';
+        text.style.top = Math.random() * window.innerHeight + 'px';
+        document.querySelector('.non-euclidean-container').appendChild(text);
+        
+        setTimeout(() => {
+          text.remove();
+        }, 10000);
+      }
+    
+      setInterval(createFloatingText, 2000);
+    
+      function createAlien() {
+        const alien = document.createElement('div');
+        alien.className = 'alien';
+        alien.innerHTML = `
+          <svg viewBox="0 0 100 100">
+            <circle cx="50" cy="40" r="30" fill="#7fff7f"/>
+            <ellipse cx="50" cy="80" rx="20" ry="10" fill="#7fff7f"/>
+            <circle cx="40" cy="35" r="10" fill="black"/>
+            <circle cx="60" cy="35" r="10" fill="black"/>
+            <path d="M40 60 Q50 70 60 60" stroke="black" fill="none" stroke-width="3"/>
+          </svg>
+        `;
+        alien.style.left = Math.random() * (window.innerWidth - 50) + 'px';
+        alien.style.top = Math.random() * (window.innerHeight - 50) + 'px';
+        document.querySelector('.non-euclidean-container').appendChild(alien);
+        
+        let dx = (Math.random() - 0.5) * 4;
+        let dy = (Math.random() - 0.5) * 4;
+        
+        function moveAlien() {
+          let rect = alien.getBoundingClientRect();
+          if (rect.left <= 0 || rect.right >= window.innerWidth) dx = -dx;
+          if (rect.top <= 0 || rect.bottom >= window.innerHeight) dy = -dy;
+          
+          alien.style.left = (rect.left + dx) + 'px';
+          alien.style.top = (rect.top + dy) + 'px';
+          
+          if (alien.isConnected) requestAnimationFrame(moveAlien);
+        }
+        
+        moveAlien();
+        
+        setTimeout(() => {
+          alien.remove();
+        }, 10000);
+      }
+    
+      setInterval(createAlien, 3000);
+    
+      let mouseX = 0, mouseY = 0;
+      document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        
+        const trail = document.createElement('div');
+        trail.className = 'floating-text';
+        trail.style.left = mouseX + 'px';
+        trail.style.top = mouseY + 'px';
+        trail.textContent = '✧';
+        trail.style.fontSize = '10px';
+        document.querySelector('.non-euclidean-container').appendChild(trail);
+        
+        setTimeout(() => {
+          trail.remove();
+        }, 1000);
+      });
+    
+      // Add event listener for the booking button
+      document.querySelector('.book-room-btn').addEventListener('click', (e) => {
+        // Add a swirling portal effect before navigation
+        const portal = document.createElement('div');
+        portal.style.cssText = `
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 0;
+          height: 0;
+          background: radial-gradient(circle at center, #4ff, #f4f);
+          border-radius: 50%;
+          z-index: 9999;
+          transition: all 0.5s;
+          pointer-events: none;
+        `;
+        document.body.appendChild(portal);
+    
+        // Animate portal
+        setTimeout(() => {
+          portal.style.width = '200vw';
+          portal.style.height = '200vh';
+        }, 50);
+    
+        // Actual navigation happens after portal effect
+        setTimeout(() => {
+          window.location.href = '/booking.html';
+        }, 500);
+      });
+    });
+    </script>
+    
+    </body></html>

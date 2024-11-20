@@ -1,0 +1,336 @@
+<html><head><base href="/experiences/consciousness_decoupling/orientation.html">
+    <meta charset="UTF-8">
+    <title>Dimensional Orientation | 5th Dimensional Tourism Bureau</title>
+    <style>
+    body {
+      margin: 0;
+      background: #000;
+      color: #fff;
+      font-family: "Space Mono", monospace;
+      min-height: 100vh;
+      overflow-x: hidden;
+      background: linear-gradient(180deg, #1a0033 0%, #000000 100%);
+    }
+    
+    .orientation-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    
+    .title {
+      font-size: 48px;
+      background: linear-gradient(45deg, #7fff7f, #ff7fff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 20px;
+      animation: glow 3s infinite;
+    }
+    
+    .subtitle {
+      font-size: 24px;
+      color: #cccccc;
+    }
+    
+    .orientation-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      margin-top: 40px;
+    }
+    
+    .step {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      padding: 30px;
+      transition: transform 0.3s;
+      position: relative;
+      overflow: hidden;
+      animation: pulseBackground 4s infinite;
+      transform-style: preserve-3d;
+      animation: dimensionalShift 6s infinite;
+    }
+    
+    .step:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.08);
+    }
+    
+    .step::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #7fff7f, #ff7fff);
+    }
+    
+    .step-number {
+      font-size: 64px;
+      color: rgba(127, 255, 127, 0.2);
+      position: absolute;
+      right: 20px;
+      top: 10px;
+      animation: glow 4s infinite;
+    }
+    
+    .step-title {
+      font-size: 24px;
+      color: #7fff7f;
+      margin-bottom: 20px;
+    }
+    
+    .step-content {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #cccccc;
+    }
+    
+    .warning-box {
+      background: rgba(255, 127, 127, 0.1);
+      border-left: 4px solid #ff7f7f;
+      padding: 20px;
+      margin: 40px 0;
+      border-radius: 0 10px 10px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .warning-box::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255,127,127,0.1), transparent);
+      animation: warningGlow 4s infinite;
+      transform: rotate(30deg);
+    }
+    
+    .warning-title {
+      color: #ff7f7f;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    
+    .continue-container {
+      text-align: center;
+      margin-top: 60px;
+    }
+    
+    .continue-button {
+      background: linear-gradient(45deg, #7fff7f, #ff7fff);
+      border: none;
+      padding: 15px 30px;
+      border-radius: 30px;
+      color: #000;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .continue-button::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255,255,255,0.2), transparent);
+      animation: buttonGlow 2s infinite;
+      transform: rotate(30deg);
+    }
+    
+    .continue-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(127,255,127,0.5);
+    }
+    
+    .dimension-symbols {
+      position: fixed;
+      pointer-events: none;
+      opacity: 0.1;
+      font-size: 24px;
+      z-index: -1;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(5deg); }
+    }
+    
+    @keyframes glow {
+      0%, 100% { text-shadow: 0 0 5px rgba(127,255,127,0.5); }
+      50% { text-shadow: 0 0 20px rgba(255,127,255,0.8); }
+    }
+    
+    @keyframes pulseBackground {
+      0%, 100% { background-color: rgba(255, 255, 255, 0.05); }
+      50% { background-color: rgba(255, 255, 255, 0.08); }
+    }
+    
+    @keyframes dimensionalShift {
+      0% { transform: perspective(1000px) rotateX(0deg); }
+      25% { transform: perspective(1000px) rotateX(2deg) rotateY(2deg); }
+      75% { transform: perspective(1000px) rotateX(-2deg) rotateY(-2deg); }
+      100% { transform: perspective(1000px) rotateX(0deg); }
+    }
+    
+    @keyframes warningGlow {
+      0% { transform: rotate(30deg) translateX(-100%); }
+      100% { transform: rotate(30deg) translateX(100%); }
+    }
+    
+    .floating-symbol {
+      position: absolute;
+      animation: float 10s infinite;
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+    
+    .floating-symbol.visible {
+      opacity: 0.1;
+    }
+    </style>
+    </head>
+    <body>
+    
+    <div class="dimension-symbols" id="symbolContainer"></div>
+    
+    <div class="orientation-container">
+      <div class="header">
+        <h1 class="title">Dimensional Orientation</h1>
+        <div class="subtitle">Essential guidelines for your transcendental experience</div>
+      </div>
+    
+      <div class="warning-box">
+        <div class="warning-title">⚠ Important Notice for New Arrivals</div>
+        <p>Your consciousness has been successfully transferred to our dimension. During your first few moments, you may experience:</p>
+        <ul>
+          <li>Temporal echoes</li>
+          <li>Reality fragmentation</li>
+          <li>Spontaneous thought materialization</li>
+          <li>Non-linear memory formation</li>
+        </ul>
+        <p>These effects are completely normal and will stabilize within ∞-1 moments.</p>
+      </div>
+    
+      <div class="orientation-steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-title">Reality Calibration</div>
+          <div class="step-content">
+            Allow your consciousness to adjust to the additional spatial dimensions. Focus on the concept of "up" until it becomes "through." If you begin to perceive your own backside, you're doing it correctly.
+          </div>
+        </div>
+    
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-title">Temporal Adaptation</div>
+          <div class="step-content">
+            Time flows differently here. You may experience tomorrow before yesterday, or both simultaneously. Don't panic - this is perfectly normal. Your complementary temporal anchor will help stabilize your experience.
+          </div>
+        </div>
+    
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-title">Communication Protocols</div>
+          <div class="step-content">
+            Standard language has been replaced with quantum-entangled thought bubbles. To communicate, simply imagine your thoughts as colorful geometric patterns. Our translation matrix will handle the rest.
+          </div>
+        </div>
+    
+        <div class="step">
+          <div class="step-number">4</div>
+          <div class="step-title">Dimensional Etiquette</div>
+          <div class="step-content">
+            Please refrain from creating paradoxes, splitting timelines, or attempting to comprehend infinity. Our cleaning staff works hard enough without having to mop up fractured realities.
+          </div>
+        </div>
+      </div>
+    
+      <div class="continue-container">
+        <a href="/">
+          <button class="continue-button">Return Home</button>
+        </a>
+      </div>
+    </div>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const container = document.getElementById('symbolContainer');
+      const symbols = '∆◊○□∞⧖⧗≈∇∂∫∮∯∰≣⋮⋯⋰⋱';
+      
+      function createSymbol() {
+        const symbol = document.createElement('div');
+        symbol.className = 'floating-symbol';
+        symbol.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+        
+        // Random position
+        symbol.style.left = `${Math.random() * 100}vw`;
+        symbol.style.top = `${Math.random() * 100}vh`;
+        
+        // Random animation delay and duration
+        const delay = Math.random() * 10;
+        symbol.style.animationDelay = `${delay}s`;
+        symbol.style.animationDuration = `${5 + Math.random() * 10}s`;
+        
+        container.appendChild(symbol);
+        
+        // Fade in
+        requestAnimationFrame(() => {
+          symbol.classList.add('visible');
+        });
+        
+        // Remove after some time
+        setTimeout(() => {
+          symbol.classList.remove('visible');
+          setTimeout(() => symbol.remove(), 500);
+        }, 20000);
+      }
+      
+      // Create new symbols more frequently
+      setInterval(createSymbol, 500);
+      
+      // Create initial batch of symbols
+      for (let i = 0; i < 30; i++) {
+        createSymbol();
+      }
+    
+      // Add hover effects for steps
+      document.querySelectorAll('.step').forEach(step => {
+        step.addEventListener('mouseover', () => {
+          step.style.animationPlayState = 'paused';
+          step.style.transform = 'scale(1.05) translateY(-5px)';
+        });
+        
+        step.addEventListener('mouseout', () => {
+          step.style.animationPlayState = 'running';
+          step.style.transform = '';
+        });
+      });
+    
+      // Add particle effects to warning box
+      const warningBox = document.querySelector('.warning-box');
+      for (let i = 0; i < 20; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'warning-particle';
+        particle.style.left = `${Math.random() * 100}%`;
+        particle.style.animationDelay = `${Math.random() * 5}s`;
+        warningBox.appendChild(particle);
+      }
+    });
+    </script>
+    
+    </body></html>

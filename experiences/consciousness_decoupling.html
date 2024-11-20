@@ -1,0 +1,332 @@
+<html><head><base href="/experiences/consciousness_decoupling.html">
+    <meta charset="UTF-8">
+    <title>Book Consciousness Decoupling | 5th Dimensional Tourism Bureau</title>
+    <style>
+    :root {
+      --glow: 0 0 10px rgba(255,255,255,0.8), 0 0 20px rgba(100,200,255,0.4);
+    }
+    
+    body {
+      margin: 0;
+      background: #000;
+      color: #fff;
+      font-family: "Space Mono", monospace;
+      min-height: 100vh;
+      background: linear-gradient(180deg, #1a0033 0%, #000000 100%);
+    }
+    
+    .booking-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    
+    .warning-banner {
+      background: rgba(255, 0, 0, 0.2);
+      border: 1px solid #ff0000;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 10px;
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 0.8; }
+      50% { opacity: 1; }
+    }
+    
+    .consciousness-form {
+      background: rgba(255,255,255,0.05);
+      padding: 30px;
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+    }
+    
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 10px;
+      color: #7fff7f;
+    }
+    
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 5px;
+      color: #fff;
+      font-family: inherit;
+    }
+    
+    .consciousness-meter {
+      height: 20px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+      margin: 20px 0;
+    }
+    
+    .consciousness-level {
+      height: 100%;
+      background: linear-gradient(90deg, #7fff7f, #ff7fff);
+      width: 0%;
+      transition: width 0.5s;
+    }
+    
+    .parallel-preview {
+      display: flex;
+      gap: 20px;
+      margin: 20px 0;
+      overflow-x: auto;
+      padding: 20px 0;
+    }
+    
+    .dimension-preview {
+      flex: 0 0 200px;
+      height: 200px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .dimension-preview::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+      animation: shimmer 2s infinite;
+    }
+    
+    @keyframes shimmer {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+    
+    .submit-button {
+      background: linear-gradient(45deg, #7fff7f, #ff7fff);
+      border: none;
+      padding: 15px 30px;
+      border-radius: 30px;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .submit-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(127,255,127,0.5);
+    }
+    
+    .quantum-signature {
+      margin-top: 20px;
+      padding: 20px;
+      border: 1px dashed rgba(255,255,255,0.2);
+      border-radius: 10px;
+    }
+    
+    .quantum-signature canvas {
+      width: 100%;
+      height: 100px;
+      background: rgba(0,0,0,0.3);
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    .floating-glyph {
+      position: absolute;
+      pointer-events: none;
+      animation: float 3s infinite ease-in-out;
+    }
+    </style>
+    </head>
+    <body>
+    
+    <div class="booking-container">
+      <h1>Consciousness Decoupling Reservation</h1>
+      
+      <div class="warning-banner">
+        ⚠️ WARNING: This experience involves temporary fragmentation of consciousness across multiple dimensional planes. 
+        Please read all disclaimers carefully before proceeding.
+      </div>
+    
+      <form class="consciousness-form" id="decouple-form">
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Temporal Identity Designation</label>
+            <input type="text" required placeholder="Enter your name across all timelines">
+          </div>
+    
+          <div class="form-group">
+            <label>Number of Desired Consciousness Fragments (3-7)</label>
+            <select required id="fragments">
+              <option value="3">3 Parallel Experiences</option>
+              <option value="4">4 Parallel Experiences</option>
+              <option value="5">5 Parallel Experiences</option>
+              <option value="6">6 Parallel Experiences (Advanced)</option>
+              <option value="7">7 Parallel Experiences (Expert)</option>
+            </select>
+          </div>
+    
+          <div class="form-group">
+            <label>Preferred Dimensional Frequencies</label>
+            <div class="consciousness-meter">
+              <div class="consciousness-level" id="consciousness-bar"></div>
+            </div>
+            <input type="range" min="0" max="100" value="50" id="frequency-slider">
+          </div>
+    
+          <div class="form-group">
+            <label>Previous Mind-Meld Experience?</label>
+            <select required>
+              <option value="">Select experience level</option>
+              <option value="novice">Novice (0-2 melds)</option>
+              <option value="intermediate">Intermediate (3-5 melds)</option>
+              <option value="advanced">Advanced (6+ melds)</option>
+            </select>
+          </div>
+        </div>
+    
+        <div class="parallel-preview" id="preview-container">
+          <!-- Dimension previews will be generated here -->
+        </div>
+    
+        <div class="quantum-signature">
+          <label>Quantum Signature (Draw your consciousness pattern)</label>
+          <canvas id="signature-canvas"></canvas>
+        </div>
+    
+        <div class="form-group">
+          <label>Consciousness Reintegration Preferences</label>
+          <textarea rows="4" placeholder="Describe your preferred reintegration sequence and any specific memory retention requests..."></textarea>
+        </div>
+    
+        <button type="submit" class="submit-button">Initialize Consciousness Decoupling</button>
+      </form>
+    </div>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const frequencySlider = document.getElementById('frequency-slider');
+      const consciousnessBar = document.getElementById('consciousness-bar');
+      const fragmentSelect = document.getElementById('fragments');
+      const previewContainer = document.getElementById('preview-container');
+      const canvas = document.getElementById('signature-canvas');
+      const ctx = canvas.getContext('2d');
+    
+      // Initialize quantum signature canvas
+      let isDrawing = false;
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+      
+      ctx.strokeStyle = '#7fff7f';
+      ctx.lineJoin = 'round';
+      ctx.lineCap = 'round';
+      ctx.lineWidth = 2;
+    
+      canvas.addEventListener('mousedown', startDrawing);
+      canvas.addEventListener('mousemove', draw);
+      canvas.addEventListener('mouseup', stopDrawing);
+      canvas.addEventListener('mouseout', stopDrawing);
+    
+      function startDrawing(e) {
+        isDrawing = true;
+        [lastX, lastY] = [e.offsetX, e.offsetY];
+      }
+    
+      function draw(e) {
+        if (!isDrawing) return;
+        
+        ctx.beginPath();
+        ctx.moveTo(lastX, lastY);
+        ctx.lineTo(e.offsetX, e.offsetY);
+        ctx.stroke();
+        [lastX, lastY] = [e.offsetX, e.offsetY];
+    
+        // Add quantum effects
+        ctx.shadowBlur = 10;
+        ctx.shadowColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+      }
+    
+      function stopDrawing() {
+        isDrawing = false;
+      }
+    
+      // Update consciousness meter
+      frequencySlider.addEventListener('input', (e) => {
+        const value = e.target.value;
+        consciousnessBar.style.width = `${value}%`;
+        consciousnessBar.style.background = `linear-gradient(90deg, 
+          #7fff7f ${value}%, 
+          #ff7fff ${value + 20}%
+        )`;
+      });
+    
+      // Generate dimension previews
+      fragmentSelect.addEventListener('change', (e) => {
+        const fragments = parseInt(e.target.value);
+        previewContainer.innerHTML = '';
+        
+        for (let i = 0; i < fragments; i++) {
+          const preview = document.createElement('div');
+          preview.className = 'dimension-preview';
+          preview.innerHTML = `
+            <svg width="100" height="100" viewBox="0 0 100 100">
+              <circle cx="50" cy="50" r="40" fill="none" stroke="#7fff7f" stroke-width="2">
+                <animate attributeName="r" values="40;45;40" dur="${2 + i * 0.5}s" repeatCount="indefinite"/>
+              </circle>
+              <text x="50" y="55" text-anchor="middle" fill="#7fff7f" font-size="20">D${i + 1}</text>
+            </svg>
+          `;
+          previewContainer.appendChild(preview);
+        }
+      });
+    
+      // Add floating glyphs
+      function createFloatingGlyph() {
+        const glyph = document.createElement('div');
+        glyph.className = 'floating-glyph';
+        glyph.style.left = `${Math.random() * 100}vw`;
+        glyph.style.top = `${Math.random() * 100}vh`;
+        glyph.style.color = `hsl(${Math.random() * 360}, 100%, 75%)`;
+        glyph.style.fontSize = `${20 + Math.random() * 20}px`;
+        glyph.textContent = ['∆', '◊', '○', '□', '∞', '⧖', '⧗'][Math.floor(Math.random() * 7)];
+        
+        document.body.appendChild(glyph);
+        
+        setTimeout(() => {
+          glyph.remove();
+        }, 5000);
+      }
+    
+      setInterval(createFloatingGlyph, 1000);
+    
+      // Form submission
+      document.getElementById('decouple-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        //alert('⚠️ Consciousness decoupling initialization sequence started. Please remain calm and maintain quantum coherence.');
+        window.location.href = '/experiences/consciousness_decoupling/transferring.html';
+      });
+    });
+    </script>
+    
+    </body></html>

@@ -1,0 +1,326 @@
+<html><head><base href="/experiences/time_tasting.html">
+    <meta charset="UTF-8">
+    <title>Time Taste Testing Booking | 5th Dimensional Tourism Bureau</title>
+    <style>
+    @keyframes timeWarp {
+      0% { transform: perspective(1000px) rotateX(0deg); }
+      50% { transform: perspective(1000px) rotateX(10deg); }
+      100% { transform: perspective(1000px) rotateX(0deg); }
+    }
+    
+    @keyframes chromaticAberration {
+      0% { text-shadow: -2px 0 #ff0000, 2px 0 #00ff00; }
+      50% { text-shadow: 2px 0 #0000ff, -2px 0 #ff00ff; }
+      100% { text-shadow: -2px 0 #ff0000, 2px 0 #00ff00; }
+    }
+    
+    @keyframes tasteBubble {
+      0% { transform: scale(1) rotate(0deg); opacity: 1; }
+      100% { transform: scale(0) rotate(360deg); opacity: 0; }
+    }
+    
+    body {
+      margin: 0;
+      background: #000;
+      color: #fff;
+      font-family: "Space Mono", monospace;
+      min-height: 100vh;
+      background: linear-gradient(45deg, #120338, #2d0b46);
+      overflow-x: hidden;
+    }
+    
+    .booking-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px;
+    }
+    
+    .time-selection {
+      background: rgba(255,255,255,0.05);
+      border-radius: 15px;
+      padding: 30px;
+      margin: 20px 0;
+      backdrop-filter: blur(10px);
+      animation: timeWarp 10s infinite;
+    }
+    
+    .flavor-profile {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin: 30px 0;
+    }
+    
+    .flavor-card {
+      background: rgba(255,255,255,0.1);
+      padding: 20px;
+      border-radius: 10px;
+      transition: all 0.3s;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .flavor-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px rgba(255,255,255,0.2);
+    }
+    
+    .flavor-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1), transparent);
+      transform: rotate(45deg);
+      transition: all 0.5s;
+    }
+    
+    .flavor-card:hover::before {
+      transform: rotate(225deg);
+    }
+    
+    .booking-form {
+      background: rgba(0,0,0,0.3);
+      padding: 30px;
+      border-radius: 15px;
+      margin-top: 40px;
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 10px;
+      color: #a988ff;
+    }
+    
+    input, select {
+      width: 100%;
+      padding: 10px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 5px;
+      color: #fff;
+      font-family: inherit;
+    }
+    
+    .taste-bubble {
+      position: fixed;
+      pointer-events: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.8), transparent);
+      animation: tasteBubble 2s forwards;
+    }
+    
+    .temporal-warning {
+      color: #ff6b6b;
+      font-style: italic;
+      margin: 10px 0;
+      animation: chromaticAberration 2s infinite;
+    }
+    
+    .submit-button {
+      background: linear-gradient(45deg, #7928ca, #ff0080);
+      border: none;
+      padding: 15px 30px;
+      color: white;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-size: 1.1em;
+    }
+    
+    .submit-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px rgba(255,0,128,0.3);
+    }
+    
+    .epoch-display {
+      font-size: 2em;
+      text-align: center;
+      margin: 20px 0;
+      color: #fff;
+      text-shadow: 0 0 10px rgba(255,255,255,0.5);
+    }
+    
+    .waiver-text {
+      font-size: 0.8em;
+      color: rgba(255,255,255,0.6);
+      margin-top: 20px;
+    }
+    </style>
+    </head>
+    <body>
+    
+    <div class="booking-container">
+      <h1>T̸̪̩͉̋͆i̷͚̿m̸̡̛̖̒ē̷͎̝ ̶͉̈́T̶͓̿a̶̘͂s̶͉̈́t̵͍̏e̷͉͒ ̷͚̿T̵͍̏e̷͉͒s̶͉̈́t̵͍̏i̷͚̿n̷͚̿g̷͉͒ Booking Portal</h1>
+    
+      <div class="epoch-display">
+        Current Temporal Coordinates: <span id="temporal-coordinates"></span>
+      </div>
+    
+      <div class="time-selection">
+        <h2>Available Flavor Profiles</h2>
+        <div class="flavor-profile">
+          <div class="flavor-card" data-era="renaissance">
+            <h3>Renaissance Era</h3>
+            <p>Notes of artistic revolution, with hints of plague and enlightenment</p>
+            <p class="cost">150 Void Credits/hour</p>
+            <input type="radio" name="selected-flavor" value="renaissance" required>
+          </div>
+          
+          <div class="flavor-card" data-era="future-2300">
+            <h3>Neo-Tokyo 2300</h3>
+            <p>Cybernetic undertones with a quantum computing finish</p>
+            <p class="cost">300 Void Credits/hour</p>
+            <input type="radio" name="selected-flavor" value="future-2300" required>
+          </div>
+          
+          <div class="flavor-card" data-era="dinosaur">
+            <h3>Late Cretaceous Period</h3>
+            <p>Rich prehistoric atmosphere with volcanic minerality</p>
+            <p class="cost">400 Void Credits/hour</p>
+            <input type="radio" name="selected-flavor" value="dinosaur" required>
+          </div>
+          
+          <div class="flavor-card" data-era="atlantis">
+            <h3>Lost Atlantis</h3>
+            <p>Complex aquatic civilization bouquet with crystalline technology</p>
+            <p class="cost">500 Void Credits/hour</p>
+            <input type="radio" name="selected-flavor" value="atlantis" required>
+          </div>
+        </div>
+      </div>
+    
+      <form class="booking-form" id="taste-booking-form">
+        <div class="form-group">
+          <label for="consciousness-id">Consciousness ID</label>
+          <input type="text" id="consciousness-id" placeholder="Format: X-0000-∆◊○">
+        </div>
+    
+        <div class="form-group">
+          <label for="temporal-preference">Preferred Temporal Direction</label>
+          <select id="temporal-preference" required>
+            <option value="">Select direction...</option>
+            <option value="forward">Forward</option>
+            <option value="backward">Backward</option>
+            <option value="sideways">Sideways</option>
+            <option value="spiral">Spiral</option>
+          </select>
+        </div>
+    
+        <div class="form-group">
+          <label for="taste-duration">Duration (Temporal Hours)</label>
+          <input type="number" id="taste-duration" min="1" max="24" required>
+        </div>
+    
+        <div class="temporal-warning">
+          ⚠ WARNING: Temporal taste buds may experience mild displacement
+        </div>
+    
+        <button type="submit" class="submit-button">Initialize Temporal Tasting</button>
+    
+        <div class="waiver-text">
+          By submitting this form, you acknowledge that your taste perceptions may be permanently altered across all timelines. The Tourism Bureau is not responsible for any paradoxical flavor combinations or timeline cross-contamination.
+        </div>
+      </form>
+    </div>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Update temporal coordinates
+      function updateTemporalCoordinates() {
+        const coords = document.getElementById('temporal-coordinates');
+        const time = new Date();
+        const dimensions = ['α', 'β', 'γ', 'δ', 'ε'];
+        const randomDimension = dimensions[Math.floor(Math.random() * dimensions.length)];
+        coords.textContent = `${randomDimension}-${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}`;
+      }
+      
+      setInterval(updateTemporalCoordinates, 1000);
+    
+      // Flavor card interactions
+      document.querySelectorAll('.flavor-card').forEach(card => {
+        card.addEventListener('click', () => {
+          // Select the radio button when clicking anywhere on the card
+          const radio = card.querySelector('input[type="radio"]');
+          radio.checked = true;
+    
+          // Create taste bubbles
+          for(let i = 0; i < 5; i++) {
+            const bubble = document.createElement('div');
+            bubble.className = 'taste-bubble';
+            bubble.style.left = Math.random() * window.innerWidth + 'px';
+            bubble.style.top = Math.random() * window.innerHeight + 'px';
+            bubble.style.backgroundColor = `hsl(${Math.random() * 360}, 70%, 50%)`;
+            document.body.appendChild(bubble);
+            
+            // Remove bubble after animation
+            bubble.addEventListener('animationend', () => bubble.remove());
+          }
+    
+          // Visual feedback
+          card.style.transform = 'scale(0.95)';
+          setTimeout(() => card.style.transform = '', 200);
+        });
+      });
+    
+      // Form submission
+      document.getElementById('taste-booking-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const selectedFlavor = document.querySelector('input[name="selected-flavor"]:checked');
+        
+        if (!selectedFlavor) {
+          alert('Please select a flavor profile before proceeding.');
+          return;
+        }
+    
+        const formData = {
+          consciousnessId: document.getElementById('consciousness-id').value,
+          temporalPreference: document.getElementById('temporal-preference').value,
+          duration: document.getElementById('taste-duration').value,
+          flavor: selectedFlavor.value
+        };
+    
+        // Simulated booking process
+        const button = e.target.querySelector('button');
+        button.disabled = true;
+        button.textContent = 'Calculating Temporal Coordinates...';
+    
+        setTimeout(() => {
+          button.textContent = 'Aligning Taste Dimensions...';
+          setTimeout(() => {
+            button.textContent = 'Booking Confirmed!';
+            button.style.background = 'linear-gradient(45deg, #00ff00, #00aa00)';
+            
+            // Create success effect
+            const success = document.createElement('div');
+            success.style.position = 'fixed';
+            success.style.top = '50%';
+            success.style.left = '50%';
+            success.style.transform = 'translate(-50%, -50%)';
+            success.style.fontSize = '2em';
+            success.style.color = '#00ff00';
+            success.textContent = '✓';
+            document.body.appendChild(success);
+    
+            // Redirect with query parameters
+            setTimeout(() => {
+              const params = new URLSearchParams(formData);
+              window.location.href = `/experiences/time_tasting/confirmation.html?${params.toString()}`;
+            }, 2000);
+          }, 2000);
+        }, 2000);
+      });
+    });
+    </script>
+    
+    </body></html>
