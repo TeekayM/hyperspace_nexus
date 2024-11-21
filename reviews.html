@@ -1,0 +1,692 @@
+<html><head><base href="/reviews.html">
+    <meta charset="UTF-8">
+    <title>Traveler Reviews | Hyperspace Nexus</title>
+    <style>
+        :root {
+            --glow: 0 0 10px rgba(255,255,255,0.8), 0 0 20px rgba(100,200,255,0.4);
+            --neon-blue: #4ff;
+            --neon-pink: #f4f;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: #040008;
+            color: #fff;
+            font-family: 'Orbitron', sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .stars-container {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .star {
+            position: absolute;
+            background: #fff;
+            border-radius: 50%;
+            animation: twinkle var(--duration) infinite ease-in-out;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 1; }
+        }
+
+        .reviews-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .review-card {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transform-style: preserve-3d;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px) rotate3d(1, 1, 0, 2deg);
+            box-shadow: 0 10px 30px rgba(66,255,255,0.2);
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .reviewer-avatar {
+            position: relative;
+            background: none; /* Remove existing gradient background */
+            width: 60px;
+            height: 60px;
+            margin-right: 15px;
+        }
+
+        .avatar-svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .reviewer-info {
+            flex-grow: 1;
+        }
+
+        .reviewer-name {
+            font-size: 1.2em;
+            color: var(--neon-blue);
+            text-shadow: var(--glow);
+            margin: 0;
+        }
+
+        .review-date {
+            font-size: 0.8em;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .rating {
+            display: flex;
+            gap: 5px;
+            margin: 10px 0;
+        }
+
+        .star-rating {
+            color: var(--neon-pink);
+            text-shadow: 0 0 5px var(--neon-pink);
+        }
+
+        .review-text {
+            line-height: 1.6;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .review-text::before {
+            content: '"';
+            font-size: 3em;
+            color: rgba(255,255,255,0.1);
+            position: absolute;
+            left: -20px;
+            top: -20px;
+        }
+
+        .dimension-tag {
+            display: inline-block;
+            padding: 5px 10px;
+            background: rgba(66,255,255,0.1);
+            border-radius: 15px;
+            font-size: 0.8em;
+            color: var(--neon-blue);
+            margin-right: 10px;
+        }
+
+        .review-photos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .review-photo {
+            width: 100%;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .review-photo:hover {
+            transform: scale(1.05);
+        }
+
+        .review-photo img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            border: 2px solid var(--neon-blue);
+        }
+
+        .quantum-particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: var(--neon-blue);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: float 10s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(100px, -50px) scale(0.5); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+
+        .header-title {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: var(--neon-blue);
+            text-shadow: var(--glow);
+            animation: glowPulse 2s infinite ease-in-out;
+        }
+
+        @keyframes glowPulse {
+            0%, 100% { text-shadow: 0 0 10px var(--neon-blue); }
+            50% { text-shadow: 0 0 20px var(--neon-pink); }
+        }
+
+        .portal-rings {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .portal-ring {
+            position: absolute;
+            border: 1px solid rgba(66,255,255,0.1);
+            border-radius: 50%;
+            animation: expandRing 8s infinite linear;
+        }
+
+        @keyframes expandRing {
+            0% {
+                width: 0;
+                height: 0;
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+            100% {
+                width: 200vw;
+                height: 200vw;
+                opacity: 0;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="stars-container"></div>
+    <div class="portal-rings"></div>
+
+    <div class="reviews-container">
+        <h1 class="header-title">Interdimensional Traveler Reviews</h1>
+
+        <div class="review-card">
+            <div class="review-header">
+                <div class="reviewer-avatar">
+                    <div class="avatar-svg"></div>
+                </div>
+                <div class="reviewer-info">
+                    <h3 class="reviewer-name">Zx-427/α</h3>
+                    <div class="review-date">Time Coordinate: ∞-12-25</div>
+                    <div class="rating">
+                        <span class="star-rating">★★★★★</span>
+                        <span class="dimension-tag">5th Dimension</span>
+                    </div>
+                </div>
+            </div>
+            <p class="review-text">
+                Absolutely mind-bending experience! The non-Euclidean architecture took some getting used to, but the staff was incredibly helpful in teaching me how to navigate rooms that contain themselves. The breakfast buffet exists in a quantum superposition of all possible meals - delicious!
+            </p>
+            <div class="review-photos">
+                <div class="review-photo">
+                    <img src="/images/review1.webp" alt="Non-Euclidean architecture with glowing neon highlights, geometric impossibilities visible" width="800" height="600">
+                </div>
+                <div class="review-photo">
+                    <img src="/images/review2.webp" alt="Quantum superposition breakfast buffet, multiple realities overlapping" width="800" height="600">
+                </div>
+            </div>
+        </div>
+
+        <div class="review-card">
+            <div class="review-header">
+                <div class="reviewer-avatar">
+                    <div class="avatar-svg"></div>
+                </div>
+                <div class="reviewer-info">
+                    <h3 class="reviewer-name">Emily Zhang-∆</h3>
+                    <div class="review-date">Time Coordinate: Y2K+23</div>
+                    <div class="rating">
+                        <span class="star-rating">★★★★☆</span>
+                        <span class="dimension-tag">3rd Dimension</span>
+                    </div>
+                </div>
+            </div>
+            <p class="review-text">
+                The temporal room service is amazing - my food arrived yesterday before I even ordered it! Only giving 4 stars because I'm still trying to find my original consciousness after the complementary consciousness-splitting spa treatment.
+            </p>
+            <div class="review-photos">
+                <div class="review-photo">
+                    <img src="/images/review3.webp" alt="Consciousness-splitting spa treatment room with temporal distortion effects" width="800" height="600">
+                </div>
+            </div>
+        </div>
+
+        <div class="review-card">
+            <div class="review-header">
+                <div class="reviewer-avatar">
+                    <div class="avatar-svg"></div>
+                </div>
+                <div class="reviewer-info">
+                    <h3 class="reviewer-name">⌘Ω☮</h3>
+                    <div class="review-date">Time Coordinate: [REDACTED]</div>
+                    <div class="rating">
+                        <span class="star-rating">★★★★★</span>
+                        <span class="dimension-tag">11th Dimension</span>
+                    </div>
+                </div>
+            </div>
+            <p class="review-text">
+                [REVIEW TRANSCENDS HUMAN LANGUAGE] ⚡️🌌✨ Roughly translated: "The hyperbolic swimming pool is a masterpiece of non-Euclidean engineering. My tentacles have never felt so relaxed across all possible timelines."
+            </p>
+            <div class="review-photos">
+                <div class="review-photo">
+                    <img src="/images/review4.webp" alt="Hyperbolic swimming pool with impossible geometry and shimmering water" width="800" height="600">
+                </div>
+                <div class="review-photo">
+                    <img src="/images/review5.webp" alt="Multi-dimensional relaxation area with quantum effects visible" width="800" height="600">
+                </div>
+            </div>
+        </div>
+
+        <div class="review-card">
+            <div class="review-header">
+                <div class="reviewer-avatar">
+                    <div class="avatar-svg"></div>
+                </div>
+                <div class="reviewer-info">
+                    <h3 class="reviewer-name">Bob Smith & Bob Smith²</h3>
+                    <div class="review-date">Time Coordinate: Perpetual Tuesday</div>
+                    <div class="rating">
+                        <span class="star-rating">★★★★★</span>
+                        <span class="dimension-tag">4th Dimension</span>
+                    </div>
+                </div>
+            </div>
+            <p class="review-text">
+                Met myself from another timeline at the paradox bar. Had a great conversation about existence. The infinity pool really is infinite! Pro tip: don't forget to pack your temporal stabilizers.
+            </p>
+        </div>
+
+        <div class="review-card">
+            <div class="review-header">
+                <div class="reviewer-avatar">
+                    <div class="avatar-svg"></div>
+                </div>
+                <div class="reviewer-info">
+                    <h3 class="reviewer-name">Quantum Queen-✧</h3>
+                    <div class="review-date">Time Coordinate: Yesterday-Tomorrow</div>
+                    <div class="rating">
+                        <span class="star-rating">★★★★★</span>
+                        <span class="dimension-tag">7th Dimension</span>
+                    </div>
+                </div>
+            </div>
+            <p class="review-text">
+                The probability lounge is fantastic! Loved simultaneously experiencing all possible vacation outcomes. The quantum-entangled massage synchronized all my parallel selves. Warning: your past and future selves might end up sharing the same hot tub.
+            </p>
+            <div class="review-photos">
+                <div class="review-photo">
+                    <img src="/images/review6.webp" alt="Probability lounge with quantum probability waves visible in the air" width="800" height="600">
+                </div>
+            </div>
+        </div>
+
+        <div class="review-card">
+            <div class="review-header">
+                <div class="reviewer-avatar">
+                    <div class="avatar-svg"></div>
+                </div>
+                <div class="reviewer-info">
+                    <h3 class="reviewer-name">void_walker_42</h3>
+                    <div class="review-date">Time Coordinate: Eternal Now</div>
+                    <div class="rating">
+                        <span class="star-rating">★★★★☆</span>
+                        <span class="dimension-tag">Void Dimension</span>
+                    </div>
+                </div>
+            </div>
+            <p class="review-text">
+                The absence of existence in my room was perfect - exactly what I needed! Minor complaint: the anti-matter minibar prices are a bit steep. Loved the entropy reduction services though. The staff somehow managed to reverse the heat death of my personal universe.
+            </p>
+        </div>
+
+        <div class="review-card">
+            <div class="review-header">
+                <div class="reviewer-avatar">
+                    <div class="avatar-svg"></div>
+                </div>
+                <div class="reviewer-info">
+                    <h3 class="reviewer-name">Time Lord Sarah & Past Sarah</h3>
+                    <div class="review-date">Time Coordinate: All of Them</div>
+                    <div class="rating">
+                        <span class="star-rating">★★★★★</span>
+                        <span class="dimension-tag">Time Stream</span>
+                    </div>
+                </div>
+            </div>
+            <p class="review-text">
+                Booked a room across all possible timelines - what a deal! The chronology protection protocols are top-notch. Had breakfast with my past self while watching my future self check out. The temporal paradox insurance was worth every chronocredit.
+            </p>
+        </div>
+
+        <div class="review-card">
+            <div class="review-header">
+                <div class="reviewer-avatar">
+                    <div class="avatar-svg"></div>
+                </div>
+                <div class="reviewer-info">
+                    <h3 class="reviewer-name">∞-Minded Collective</h3>
+                    <div class="review-date">Time Coordinate: Beyond Time</div>
+                    <div class="rating">
+                        <span class="star-rating">★★★★★</span>
+                        <span class="dimension-tag">9th Dimension</span>
+                    </div>
+                </div>
+            </div>
+            <p class="review-text">
+                We are a hivemind of 10,000 consciousness streams and every single one of us was impressed! The psychic buffet catered to all our parallel thoughts simultaneously. The dream-sync rooms allowed us to share a single coherent hallucination. Simply magnificent!
+            </p>
+        </div>
+
+        <div class="review-card">
+            <div class="review-header">
+                <div class="reviewer-avatar">
+                    <div class="avatar-svg"></div>
+                </div>
+                <div class="reviewer-info">
+                    <h3 class="reviewer-name">Dr. String Theory</h3>
+                    <div class="review-date">Time Coordinate: M-brane epoch</div>
+                    <div class="rating">
+                        <span class="star-rating">★★★★½</span>
+                        <span class="dimension-tag">26th Dimension</span>
+                    </div>
+                </div>
+            </div>
+            <p class="review-text">
+                As a being of pure vibrating cosmic strings, I found the harmonic resonance chambers absolutely delightful! The multiverse view from my room spanned 11 dimensions. Only complaint: the complementary M-theory breakfast could use more supersymmetry.
+            </p>
+        </div>
+
+        <div class="review-card">
+            <div class="review-header">
+                <div class="reviewer-avatar">
+                    <div class="avatar-svg"></div>
+                </div>
+                <div class="reviewer-info">
+                    <h3 class="reviewer-name">Galactic Wanderer #42X</h3>
+                    <div class="review-date">Time Coordinate: Loop-∞-Beta</div>
+                    <div class="rating">
+                        <span class="star-rating">★★★★★</span>
+                        <span class="dimension-tag">13th Dimension</span>
+                    </div>
+                </div>
+            </div>
+            <p class="review-text">
+                The recursive reality suites are a marvel! I especially enjoyed how my room was simultaneously inside and outside itself. The möbius strip waterslide was a highlight - I'm still not sure if I ever actually reached the end or the beginning.
+            </p>
+            <div class="review-photos">
+                <div class="review-photo">
+                    <img src="/images/review7.webp" alt="Möbius strip waterslide with impossible geometry, iridescent water flowing in paradoxical patterns" width="800" height="600">
+                </div>
+            </div>
+        </div>
+
+        <div class="review-card">
+            <div class="review-header">
+                <div class="reviewer-avatar">
+                    <div class="avatar-svg"></div>
+                </div>
+                <div class="reviewer-info">
+                    <h3 class="reviewer-name">Quantum Butterfly-Δ</h3>
+                    <div class="review-date">Time Coordinate: Pre-Big Bang</div>
+                    <div class="rating">
+                        <span class="star-rating">★★★★★</span>
+                        <span class="dimension-tag">Primordial Dimension</span>
+                    </div>
+                </div>
+            </div>
+            <p class="review-text">
+                Fantastic singularity views! The pre-universe continental breakfast was a unique experience - tasting flavors that don't exist yet was mind-blowing. The probability waves in my room took some getting used to, but the staff's quantum stabilization service was excellent.
+            </p>
+        </div>
+
+        <div class="review-card">
+            <div class="review-header">
+                <div class="reviewer-avatar">
+                    <div class="avatar-svg"></div>
+                </div>
+                <div class="reviewer-info">
+                    <h3 class="reviewer-name">Time-Surfer Kai</h3>
+                    <div class="review-date">Time Coordinate: Wave Function Ψ</div>
+                    <div class="rating">
+                        <span class="star-rating">★★★★½</span>
+                        <span class="dimension-tag">Wave Function</span>
+                    </div>
+                </div>
+            </div>
+            <p class="review-text">
+                The chronon surfing lessons were radical! Caught some sick temporal waves in the probability pool. Only minor issue was when I accidentally surfed into my own timeline and had to get reality-insurance to sort it out. The timeline repair service is top-notch though!
+            </p>
+            <div class="review-photos">
+                <div class="review-photo">
+                    <img src="/images/review8.webp" alt="Probability waves in the quantum surfing pool, temporal distortions visible" width="800" height="600">
+                </div>
+            </div>
+        </div>
+
+        <div class="review-card">
+            <div class="review-header">
+                <div class="reviewer-avatar">
+                    <div class="avatar-svg"></div>
+                </div>
+                <div class="reviewer-info">
+                    <h3 class="reviewer-name">Entropy Whisperer</h3>
+                    <div class="review-date">Time Coordinate: Heat Death+1</div>
+                    <div class="rating">
+                        <span class="star-rating">★★★★★</span>
+                        <span class="dimension-tag">Terminal Dimension</span>
+                    </div>
+                </div>
+            </div>
+            <p class="review-text">
+                Perfect getaway at the end of time! The void meditation sessions were incredibly relaxing. Loved how they reversed local entropy for the spa treatments. The black hole view from my room was spectacular - watching the last stars fade was oddly peaceful.
+            </p>
+        </div>
+
+        <div class="review-card">
+            <div class="review-header">
+                <div class="reviewer-avatar">
+                    <div class="avatar-svg"></div>
+                </div>
+                <div class="reviewer-info">
+                    <h3 class="reviewer-name">Fractal Entity π</h3>
+                    <div class="review-date">Time Coordinate: Self-Similar</div>
+                    <div class="rating">
+                        <span class="star-rating">★★★★★</span>
+                        <span class="dimension-tag">Fractal Dimension</span>
+                    </div>
+                </div>
+            </div>
+            <p class="review-text">
+                Infinite recursion suite was perfectly self-similar! Each room contained itself infinitely, yet somehow fit in a finite space. The Mandelbrot bath treatment left me feeling recursively refreshed. Warning: don't stare too long at the wallpaper patterns.
+            </p>
+            <div class="review-photos">
+                <div class="review-photo">
+                    <img src="/images/review9.webp" alt="Recursive hotel room with infinite self-similar patterns, fractal architecture" width="800" height="600">
+                </div>
+            </div>
+        </div>
+
+        <div class="review-card">
+            <div class="review-header">
+                <div class="reviewer-avatar">
+                    <div class="avatar-svg"></div>
+                </div>
+                <div class="reviewer-info">
+                    <h3 class="reviewer-name">String Theorist #C-137</h3>
+                    <div class="review-date">Time Coordinate: Planck Time Zero</div>
+                    <div class="rating">
+                        <span class="star-rating">★★★★★</span>
+                        <span class="dimension-tag">Calabi-Yau Manifold</span>
+                    </div>
+                </div>
+            </div>
+            <p class="review-text">
+                The 11-dimensional suite was worth every quantum credit! The vibrating string harmonics in the meditation chamber perfectly aligned my consciousness across all compact dimensions. The supersymmetric room service arrived simultaneously in all possible quantum states.
+            </p>
+            <div class="review-photos">
+                <div class="review-photo">
+                    <img src="/images/review10.webp" alt="11-dimensional meditation chamber with visible string theory manifestations" width="800" height="600">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Create stars
+        function createStars() {
+            const starsContainer = document.querySelector('.stars-container');
+            for (let i = 0; i < 200; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                star.style.width = `${Math.random() * 2 + 1}px`;
+                star.style.height = star.style.width;
+                star.style.setProperty('--duration', `${Math.random() * 3 + 1}s`);
+                starsContainer.appendChild(star);
+            }
+        }
+
+        // Create portal rings
+        function createPortalRings() {
+            const portalContainer = document.querySelector('.portal-rings');
+            for (let i = 0; i < 5; i++) {
+                const ring = document.createElement('div');
+                ring.className = 'portal-ring';
+                ring.style.left = '50%';
+                ring.style.top = '50%';
+                ring.style.animationDelay = `${i * 2}s`;
+                portalContainer.appendChild(ring);
+            }
+        }
+
+        // Create quantum particles
+        function createQuantumParticles() {
+            setInterval(() => {
+                const particle = document.createElement('div');
+                particle.className = 'quantum-particle';
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                document.body.appendChild(particle);
+                setTimeout(() => particle.remove(), 10000);
+            }, 500);
+        }
+
+        // Generate SVG avatars
+        function generateAvatar(container) {
+            const colors = ['#4ff', '#f4f', '#ff4', '#4f4', '#f44'];
+            const shapes = ['circle', 'rect', 'polygon'];
+
+            const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+            svg.setAttribute('viewBox', '0 0 60 60');
+            svg.classList.add('avatar-svg');
+
+            // Generate random background
+            const bg = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+            bg.setAttribute('width', '60');
+            bg.setAttribute('height', '60');
+            bg.setAttribute('fill', colors[Math.floor(Math.random() * colors.length)]);
+            svg.appendChild(bg);
+
+            // Generate 3-5 random shapes
+            for(let i = 0; i < Math.floor(Math.random() * 3) + 3; i++) {
+                const shape = document.createElementNS('http://www.w3.org/2000/svg', shapes[Math.floor(Math.random() * shapes.length)]);
+                const color = colors[Math.floor(Math.random() * colors.length)];
+
+                switch(shape.tagName) {
+                    case 'circle':
+                        shape.setAttribute('cx', Math.random() * 60);
+                        shape.setAttribute('cy', Math.random() * 60);
+                        shape.setAttribute('r', Math.random() * 20 + 5);
+                        break;
+                    case 'rect':
+                        shape.setAttribute('x', Math.random() * 40);
+                        shape.setAttribute('y', Math.random() * 40);
+                        shape.setAttribute('width', Math.random() * 30 + 10);
+                        shape.setAttribute('height', Math.random() * 30 + 10);
+                        break;
+                    case 'polygon':
+                        const points = [];
+                        for(let j = 0; j < 3; j++) {
+                            points.push(`${Math.random() * 60},${Math.random() * 60}`);
+                        }
+                        shape.setAttribute('points', points.join(' '));
+                        break;
+                }
+                shape.setAttribute('fill', color);
+                shape.setAttribute('opacity', '0.7');
+                svg.appendChild(shape);
+            }
+
+            container.appendChild(svg);
+        }
+
+        // Add hover effects to review cards
+        function addCardEffects() {
+            document.querySelectorAll('.review-card').forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    const angleX = (y - centerY) / 30;
+                    const angleY = (centerX - x) / 30;
+                    
+                    card.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg) scale3d(1.02, 1.02, 1.02)`;
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+                });
+            });
+        }
+
+        // Initialize everything when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            createStars();
+            createPortalRings();
+            createQuantumParticles();
+            //addCardEffects();
+            document.querySelectorAll('.reviewer-avatar').forEach(avatar => {
+                generateAvatar(avatar);
+            });
+        });
+    </script>
+</body></html>

@@ -1,491 +1,564 @@
 <html><head><base href="/booking.html">
-    <meta charset="UTF-8">
-    <title>Book Your Non-Euclidean Stay | 5th Dimensional Tourism Bureau</title>
-    <style>
-    :root {
-      --glow: 0 0 10px rgba(255,255,255,0.8), 0 0 20px rgba(100,200,255,0.4);
-    }
-    option {
-        background-color: black;
-    }
-    body {
-      margin: 0;
-      background: radial-gradient(circle at 50% 50%, 
-        rgba(5,5,10,1) 0%,
-        rgba(2,2,8,0.8) 50%,
-        rgba(1,1,5,0.6) 100%);
-      color: #fff;
-      font-family: "Space Mono", monospace;
-      overflow-x: hidden;
-      min-height: 100vh;
-    }
-    
-    /* Adding particle container */
-    .particles {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 0;
-    }
-    
-    .particle {
-      position: absolute;
-      background: rgba(66,255,255,0.15);
-      box-shadow: 0 0 10px rgba(66,255,255,0.3);
-      border-radius: 50%;
-      pointer-events: none;
-      animation: float 20s infinite linear;
+  <meta charset="UTF-8">
+  <title>Book Your Non-Euclidean Stay | 5th Dimensional Tourism Bureau</title>
+  <style>
+  :root {
+    --glow: 0 0 10px rgba(255,255,255,0.8), 0 0 20px rgba(100,200,255,0.4);
+  }
+  option {
+      background-color: black;
+  }
+  body {
+    margin: 0;
+    background: radial-gradient(circle at 50% 50%, 
+      rgba(5,5,10,1) 0%,
+      rgba(20,2,40,0.8) 30%,
+      rgba(2,20,40,0.8) 60%,
+      rgba(40,2,20,0.8) 90%);
+    color: #fff;
+    font-family: "Space Mono", monospace;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+  
+  /* Adding particle container */
+  .particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+  }
+  
+  .particle {
+    position: absolute;
+    background: linear-gradient(45deg, 
+      rgba(66,255,255,0.3),
+      rgba(255,66,255,0.3));
+    box-shadow: 
+      0 0 10px rgba(66,255,255,0.4),
+      0 0 20px rgba(255,66,255,0.3);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: float 20s infinite linear;
+    opacity: 0;
+    filter: blur(1px);
+  }
+  
+  @keyframes float {
+    0% {
+      transform: translateY(100vh) translateX(0) scale(0);
       opacity: 0;
-      filter: blur(1px);
     }
+    10% {
+      opacity: 0.8;
+    }
+    90% {
+      opacity: 0.8;
+    }
+    100% {
+      transform: translateY(-100px) translateX(calc(sin(var(--random)) * 100px)) scale(1);
+      opacity: 0;
+    }
+  }
+  
+  .booking-container {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px;
+    background: rgba(0,0,0,0.8);
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.2);
+    box-shadow: 
+      0 0 20px rgba(66,255,255,0.2),
+      0 0 40px rgba(255,66,255,0.2),
+      0 0 60px rgba(255,255,66,0.1);
+    backdrop-filter: blur(10px);
+    animation: containerPulse 4s infinite ease-in-out;
+  }
+  
+  @keyframes containerPulse {
+    0%, 100% { box-shadow: 0 0 20px rgba(66,255,255,0.2); }
+    50% { box-shadow: 0 0 40px rgba(255,66,255,0.3); }
+  }
+  
+  .form-group {
+    margin-bottom: 25px;
+    transition: all 0.5s ease;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 10px;
+    color: #4ff;
+    text-shadow: var(--glow);
+    animation: labelFloat 3s infinite ease-in-out;
+  }
+  
+  @keyframes labelFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+  }
+  
+  input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    background: rgba(20,10,40,0.3);
+    border: 1px solid rgba(66,255,255,0.3);
+    border-radius: 8px;
+    color: #fff;
+    font-family: "Space Mono", monospace;
+    transition: all 0.3s;
+    animation: inputGlow 4s infinite alternate;
+    box-shadow: 
+      inset 0 0 10px rgba(66,255,255,0.1),
+      0 0 10px rgba(255,66,255,0.2);
+  }
+  
+  @keyframes inputGlow {
+    0% { 
+      box-shadow: 
+        0 0 5px rgba(66,255,255,0.3),
+        0 0 10px rgba(255,66,255,0.2);
+    }
+    50% {
+      box-shadow: 
+        0 0 10px rgba(255,66,255,0.3),
+        0 0 20px rgba(66,255,255,0.2);
+    }
+    100% { 
+      box-shadow: 
+        0 0 15px rgba(255,255,66,0.3),
+        0 0 30px rgba(66,255,255,0.2);
+    }
+  }
+  
+  .dimension-selector {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin: 20px 0;
+  }
+  
+  .dimension-option {
+    padding: 15px;
+    text-align: center;
+    background: rgba(20,10,40,0.2);
+    border: 1px solid rgba(66,255,255,0.2);
+    box-shadow: 0 0 10px rgba(255,66,255,0.1);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  .dimension-option:hover {
+    background: rgba(66,255,255,0.2);
+    border-color: #4ff;
+    box-shadow: 
+      0 0 15px rgba(66,255,255,0.3),
+      0 0 30px rgba(255,66,255,0.2);
+    transform: scale(1.05);
+  }
+  
+  .dimension-option.selected {
+    background: linear-gradient(45deg, 
+      rgba(66,255,255,0.3),
+      rgba(255,66,255,0.3));
+    border-color: #4ff;
+    box-shadow: 
+      0 0 20px rgba(66,255,255,0.4),
+      0 0 40px rgba(255,66,255,0.3);
+  }
+  
+  .submit-btn {
+    background: linear-gradient(45deg, #4ff, #f4f);
+    color: #fff;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-shadow: var(--glow);
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .submit-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(255,255,255,0.4);
+  }
+  
+  .warning-text {
+    color: #ff7f7f;
+    font-size: 0.8em;
+    font-style: italic;
+    margin-top: 5px;
+  }
+  
+  .portal-effect {
+    position: fixed;
+    pointer-events: none;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: radial-gradient(circle at center, 
+      rgba(66,255,255,0.4) 0%,
+      rgba(255,66,255,0.2) 40%,
+      rgba(255,66,255,0) 70%);
+    mix-blend-mode: screen;
+    z-index: 1000;
+    filter: blur(10px);
+    transition: all 0.1s ease-out;
+    will-change: transform, left, top;
+  }
+  
+  @keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(2px, -2px); }
+    60% { transform: translate(-2px, -2px); }
+    80% { transform: translate(2px, 2px); }
+    100% { transform: translate(0); }
+  }
+  
+  .glitch-text {
+    animation: glitch 0.3s infinite;
+    color: #4ff;
+  }
+  
+  .success-message {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,0.9);
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    border: 2px solid #4ff;
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    box-shadow: 0 0 30px rgba(66,255,255,0.3);
+    min-width: 300px;
+  }
+  
+  .success-message h2 {
+    margin-bottom: 20px;
+    color: #4ff;
+    text-shadow: var(--glow);
+  }
+  
+  .success-message p {
+    margin: 10px 0;
+    line-height: 1.6;
+  }
+  
+  @keyframes ripple {
+    0% {
+      width: 10px;
+      height: 10px;
+      opacity: 1;
+    }
+    100% {
+      width: 200vw;
+      height: 200vw;
+      opacity: 0;
+      border-width: 1px;
+    }
+  }
+
+  /* Fancy checkbox styling */
+  input[type="checkbox"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border: 2px solid rgba(66,255,255,0.5);
+    border-radius: 5px;
+    background: rgba(0,0,0,0.3);
+    cursor: pointer;
+    position: relative;
+    margin-right: 10px;
+    vertical-align: middle;
+    transition: all 0.3s ease;
+  }
+  
+  input[type="checkbox"]:checked {
+    background: linear-gradient(45deg, #4ff, #f4f);
+    border-color: transparent;
+  }
+  
+  input[type="checkbox"]:checked::before {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 16px;
+    text-shadow: 0 0 5px rgba(0,0,0,0.5);
+  }
+  
+  input[type="checkbox"]:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(66,255,255,0.4);
+  }
+  </style>
+  </head>
+  <body>
+  
+  <div class="particles"></div>
+  
+  <div class="booking-container">
+    <h1>B̷o̷o̷k̷ Your Non-Euclidean Stay</h1>
     
-    @keyframes float {
-      0% {
-        transform: translateY(100vh) translateX(0) scale(0);
-        opacity: 0;
+    <form id="booking-form">
+      <div class="form-group">
+        <label for="name">Your Name(s) Across All Dimensions:</label>
+        <input type="text" id="name" required placeholder="e.g. Zyx/∆θΩ/Bob">
+        <p class="warning-text">*Please list all temporal variants</p>
+      </div>
+  
+      <div class="form-group">
+        <label>Preferred Dimension of Origin:</label>
+        <div class="dimension-selector">
+          <div class="dimension-option" data-dimension="3rd">3rd</div>
+          <div class="dimension-option" data-dimension="4th">4th</div>
+          <div class="dimension-option" data-dimension="5th">5th</div>
+          <div class="dimension-option" data-dimension="6th">6th</div>
+          <div class="dimension-option" data-dimension="∞">∞</div>
+          <div class="dimension-option" data-dimension="↺">↺</div>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="check-in">Temporal Check-in:</label>
+        <input type="datetime-local" id="check-in" required>
+        <p class="warning-text">*Time is relative</p>
+      </div>
+  
+      <div class="form-group">
+        <label for="duration">Duration of Stay:</label>
+        <select id="duration" required>
+          <option value="">Select duration...</option>
+          <option value="linear">Linear (3 Earth days)</option>
+          <option value="quantum">Quantum Superposition (∞ and 0 simultaneously)</option>
+          <option value="mobius">Möbius Loop (you've already stayed here)</option>
+          <option value="recursive">Recursive (stays include past and future visits)</option>
+        </select>
+      </div>
+  
+      <div class="form-group">
+        <label for="room-type">Room Configuration:</label>
+        <select id="room-type" required>
+          <option value="">Select room type...</option>
+          <option value="klein">Klein Bottle Suite (zero walls)</option>
+          <option value="schrodinger">Schrödinger Suite (simultaneously vacant and occupied)</option>
+          <option value="tesseract">Tesseract Chamber (4D views)</option>
+          <option value="paradox">Paradox Penthouse (contains itself)</option>
+        </select>
+      </div>
+  
+      <div class="form-group">
+        <label for="special-requests">Non-Euclidean Requests:</label>
+        <textarea id="special-requests" rows="4" placeholder="e.g., preferred gravity direction, desired number of corners in room (minimum 4, maximum ∞)"></textarea>
+      </div>
+  
+      <div class="form-group">
+        <label>
+          <input type="checkbox" required>
+          I acknowledge that my consciousness may be temporarily or permanently altered during my stay
+        </label>
+      </div>
+  
+      <button type="submit" class="submit-btn">C̷o̷n̷f̷i̷r̷m̷ B̷o̷o̷k̷i̷n̷g̷</button>
+    </form>
+  </div>
+  
+  <div class="success-message" id="success-message">
+    <h2>B̷o̷o̷k̷i̷n̷g̷ C̷o̷n̷f̷i̷r̷m̷e̷d̷!</h2>
+    <p>Your stay has already happened/is happening/will happen.</p>
+    <p>Temporal confirmation code: ∆∞Ω¥₪</p>
+  </div>
+  
+  <script>
+  function createParticles() {
+    const particlesContainer = document.querySelector('.particles');
+    const particleCount = 100; // Increased count
+    
+    for (let i = 0; i < particleCount; i++) {
+      const particle = document.createElement('div');
+      particle.className = 'particle';
+      
+      const size = Math.random() * 4 + 1;
+      const left = Math.random() * 100;
+      const delay = Math.random() * 20;
+      const random = Math.random() * 360;
+      
+      particle.style.width = `${size}px`;
+      particle.style.height = `${size}px`;
+      particle.style.left = `${left}%`;
+      particle.style.animationDelay = `${delay}s`;
+      particle.style.setProperty('--random', random);
+      
+      particlesContainer.appendChild(particle);
+    }
+  }
+  
+  document.addEventListener('DOMContentLoaded', () => {
+    createParticles();
+    
+    let lastX = 0;
+    let lastY = 0;
+    const portal = document.createElement('div');
+    portal.className = 'portal-effect';
+    document.body.appendChild(portal);
+  
+    document.addEventListener('mousemove', (e) => {
+      lastX = lastX + (e.clientX - lastX) * 0.2;
+      lastY = lastY + (e.clientY - lastY) * 0.2;
+      
+      const time = Date.now() * 0.001;
+      const scale = 1 + Math.sin(time) * 0.1;
+      
+      portal.style.transform = `translate(-50%, -50%) scale(${scale})`;
+      portal.style.left = `${lastX}px`;
+      portal.style.top = `${lastY}px`;
+    });
+  
+    const dimensionOptions = document.querySelectorAll('.dimension-option');
+    dimensionOptions.forEach(option => {
+      option.addEventListener('click', () => {
+        dimensionOptions.forEach(opt => opt.classList.remove('selected'));
+        option.classList.add('selected');
+      });
+    });
+  
+    const bookingForm = document.getElementById('booking-form');
+    const successMessage = document.getElementById('success-message');
+  
+    bookingForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+  
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+  
+      bookingForm.style.transition = 'opacity 1s';
+      bookingForm.style.opacity = '0';
+  
+      const bookingPortal = document.createElement('div');
+      bookingPortal.style.cssText = `
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background: radial-gradient(circle at center, 
+          rgba(66,255,255,0.8) 0%,
+          rgba(255,66,255,0.6) 50%,
+          transparent 100%
+        );
+        z-index: 999;
+        transition: all 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+      `;
+      document.body.appendChild(bookingPortal);
+  
+      requestAnimationFrame(() => {
+        bookingPortal.style.width = '300vw';
+        bookingPortal.style.height = '300vh';
+      });
+  
+      setTimeout(() => {
+        successMessage.style.display = 'block';
+        successMessage.style.opacity = '0';
+        successMessage.style.transform = 'translate(-50%, -50%) scale(0.8)';
+        
+        requestAnimationFrame(() => {
+          successMessage.style.transition = 'all 1s cubic-bezier(0.4, 0, 0.2, 1)';
+          successMessage.style.opacity = '1';
+          successMessage.style.transform = 'translate(-50%, -50%) scale(1)';
+        });
+        
+        bookingPortal.style.opacity = '0';
+        
+        const glitchTexts = successMessage.querySelectorAll('h2, p');
+        glitchTexts.forEach(text => text.classList.add('glitch-text'));
+        
+        setTimeout(() => bookingPortal.remove(), 1000);
+      }, 1000);
+  
+      // Redirect to confirmation page after 5 seconds
+      setTimeout(() => {
+        window.location.href = '/booking/confirmation.html';
+      }, 5000);
+    });
+  
+    const checkInInput = document.getElementById('check-in');
+    checkInInput.addEventListener('change', () => {
+      const randomOffset = Math.random() * 1000000000;
+      const currentValue = new Date(checkInInput.value).getTime();
+      const newValue = new Date(currentValue + randomOffset);
+      checkInInput.value = newValue.toISOString().slice(0, 16);
+    });
+  
+    setInterval(() => {
+      const randomElement = document.querySelector(['.form-group', '.dimension-option'][Math.floor(Math.random() * 2)]);
+      if (randomElement) {
+        randomElement.style.transform = `skew(${Math.random() * 2 - 1}deg) scale(${1 + Math.random() * 0.02})`;
+        setTimeout(() => {
+          randomElement.style.transform = 'none';
+        }, 200);
       }
-      10% {
-        opacity: 0.8;
-      }
-      90% {
-        opacity: 0.8;
-      }
-      100% {
-        transform: translateY(-100px) translateX(calc(sin(var(--random)) * 100px)) scale(1);
-        opacity: 0;
-      }
-    }
-    
-    .booking-container {
-      position: relative;
-      z-index: 1;
-      max-width: 800px;
-      margin: 50px auto;
-      padding: 30px;
-      background: rgba(0,0,0,0.8);
-      border-radius: 20px;
-      border: 1px solid rgba(255,255,255,0.1);
-      backdrop-filter: blur(10px);
-      animation: containerPulse 4s infinite ease-in-out;
-    }
-    
-    @keyframes containerPulse {
-      0%, 100% { box-shadow: 0 0 20px rgba(66,255,255,0.2); }
-      50% { box-shadow: 0 0 40px rgba(255,66,255,0.3); }
-    }
-    
-    .form-group {
-      margin-bottom: 25px;
-      transition: all 0.5s ease;
-    }
-    
-    label {
-      display: block;
-      margin-bottom: 10px;
-      color: #4ff;
-      text-shadow: var(--glow);
-      animation: labelFloat 3s infinite ease-in-out;
-    }
-    
-    @keyframes labelFloat {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-3px); }
-    }
-    
-    input, select, textarea {
-      width: 100%;
-      padding: 12px;
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.2);
-      border-radius: 8px;
-      color: #fff;
-      font-family: "Space Mono", monospace;
-      transition: all 0.3s;
-      animation: inputGlow 4s infinite alternate;
-    }
-    
-    @keyframes inputGlow {
-      0% { box-shadow: 0 0 5px rgba(66,255,255,0.2); }
-      100% { box-shadow: 0 0 15px rgba(255,66,255,0.3); }
-    }
-    
-    .dimension-selector {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 15px;
-      margin: 20px 0;
-    }
-    
-    .dimension-option {
-      padding: 15px;
-      text-align: center;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 8px;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-    
-    .dimension-option:hover {
-      background: rgba(255,255,255,0.1);
-      transform: scale(1.05);
-    }
-    
-    .dimension-option.selected {
-      background: rgba(66,255,255,0.2);
-      border-color: #4ff;
-    }
-    
-    .submit-btn {
-      background: linear-gradient(45deg, #4ff, #f4f);
-      color: #fff;
-      padding: 15px 30px;
-      border: none;
-      border-radius: 30px;
-      font-size: 1.2rem;
-      cursor: pointer;
-      transition: all 0.3s;
-      text-shadow: var(--glow);
-      width: 100%;
-      margin-top: 20px;
-    }
-    
-    .submit-btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 30px rgba(255,255,255,0.4);
-    }
-    
-    .warning-text {
-      color: #ff7f7f;
-      font-size: 0.8em;
-      font-style: italic;
-      margin-top: 5px;
-    }
-    
-    .portal-effect {
-      position: fixed;
-      pointer-events: none;
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      background: radial-gradient(circle at center, 
-        rgba(66,255,255,0.4) 0%,
-        rgba(255,66,255,0.2) 40%,
-        rgba(255,66,255,0) 70%);
-      mix-blend-mode: screen;
-      z-index: 1000;
-      filter: blur(10px);
-      transition: all 0.1s ease-out;
-      will-change: transform, left, top;
-    }
-    
-    @keyframes glitch {
-      0% { transform: translate(0); }
-      20% { transform: translate(-2px, 2px); }
-      40% { transform: translate(2px, -2px); }
-      60% { transform: translate(-2px, -2px); }
-      80% { transform: translate(2px, 2px); }
-      100% { transform: translate(0); }
-    }
-    
-    .glitch-text {
-      animation: glitch 0.3s infinite;
-      color: #4ff;
-    }
-    
-    .success-message {
-      display: none;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: rgba(0,0,0,0.9);
-      padding: 40px;
-      border-radius: 20px;
-      text-align: center;
-      border: 2px solid #4ff;
-      backdrop-filter: blur(10px);
-      z-index: 1000;
-      box-shadow: 0 0 30px rgba(66,255,255,0.3);
-      min-width: 300px;
-    }
-    
-    .success-message h2 {
-      margin-bottom: 20px;
-      color: #4ff;
-      text-shadow: var(--glow);
-    }
-    
-    .success-message p {
-      margin: 10px 0;
-      line-height: 1.6;
-    }
-    
-    @keyframes ripple {
-      0% {
+    }, 3000);
+  
+    document.querySelectorAll('input, select, textarea').forEach(element => {
+      element.addEventListener('mouseover', () => {
+        element.style.transform = 'scale(1.02)';
+        element.style.boxShadow = '0 0 20px rgba(66,255,255,0.3)';
+      });
+      
+      element.addEventListener('mouseout', () => {
+        element.style.transform = 'scale(1)';
+        element.style.boxShadow = '';
+      });
+    });
+  
+    setInterval(() => {
+      const ripple = document.createElement('div');
+      ripple.style.cssText = `
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         width: 10px;
         height: 10px;
-        opacity: 1;
-      }
-      100% {
-        width: 200vw;
-        height: 200vw;
-        opacity: 0;
-        border-width: 1px;
-      }
-    }
-    </style>
-    </head>
-    <body>
-    
-    <div class="particles"></div>
-    
-    <div class="booking-container">
-      <h1>B̷o̷o̷k̷ Your Non-Euclidean Stay</h1>
-      
-      <form id="booking-form">
-        <div class="form-group">
-          <label for="name">Your Name(s) Across All Dimensions:</label>
-          <input type="text" id="name" required placeholder="e.g. Zyx/∆θΩ/Bob">
-          <p class="warning-text">*Please list all temporal variants</p>
-        </div>
-    
-        <div class="form-group">
-          <label>Preferred Dimension of Origin:</label>
-          <div class="dimension-selector">
-            <div class="dimension-option" data-dimension="3rd">3rd</div>
-            <div class="dimension-option" data-dimension="4th">4th</div>
-            <div class="dimension-option" data-dimension="5th">5th</div>
-            <div class="dimension-option" data-dimension="6th">6th</div>
-            <div class="dimension-option" data-dimension="∞">∞</div>
-            <div class="dimension-option" data-dimension="↺">↺</div>
-          </div>
-        </div>
-    
-        <div class="form-group">
-          <label for="check-in">Temporal Check-in:</label>
-          <input type="datetime-local" id="check-in" required>
-          <p class="warning-text">*Time is relative</p>
-        </div>
-    
-        <div class="form-group">
-          <label for="duration">Duration of Stay:</label>
-          <select id="duration" required>
-            <option value="">Select duration...</option>
-            <option value="linear">Linear (3 Earth days)</option>
-            <option value="quantum">Quantum Superposition (∞ and 0 simultaneously)</option>
-            <option value="mobius">Möbius Loop (you've already stayed here)</option>
-            <option value="recursive">Recursive (stays include past and future visits)</option>
-          </select>
-        </div>
-    
-        <div class="form-group">
-          <label for="room-type">Room Configuration:</label>
-          <select id="room-type" required>
-            <option value="">Select room type...</option>
-            <option value="klein">Klein Bottle Suite (zero walls)</option>
-            <option value="schrodinger">Schrödinger Suite (simultaneously vacant and occupied)</option>
-            <option value="tesseract">Tesseract Chamber (4D views)</option>
-            <option value="paradox">Paradox Penthouse (contains itself)</option>
-          </select>
-        </div>
-    
-        <div class="form-group">
-          <label for="special-requests">Non-Euclidean Requests:</label>
-          <textarea id="special-requests" rows="4" placeholder="e.g., preferred gravity direction, desired number of corners in room (minimum 4, maximum ∞)"></textarea>
-        </div>
-    
-        <div class="form-group">
-          <label>
-            <input type="checkbox" required>
-            I acknowledge that my consciousness may be temporarily or permanently altered during my stay
-          </label>
-        </div>
-    
-        <button type="submit" class="submit-btn">C̷o̷n̷f̷i̷r̷m̷ B̷o̷o̷k̷i̷n̷g̷</button>
-      </form>
-    </div>
-    
-    <div class="success-message" id="success-message">
-      <h2>B̷o̷o̷k̷i̷n̷g̷ C̷o̷n̷f̷i̷r̷m̷e̷d̷!</h2>
-      <p>Your stay has already happened/is happening/will happen.</p>
-      <p>Temporal confirmation code: ∆∞Ω¥₪</p>
-    </div>
-    
-    <script>
-    function createParticles() {
-      const particlesContainer = document.querySelector('.particles');
-      const particleCount = 100; // Increased count
-      
-      for (let i = 0; i < particleCount; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'particle';
-        
-        const size = Math.random() * 4 + 1;
-        const left = Math.random() * 100;
-        const delay = Math.random() * 20;
-        const random = Math.random() * 360;
-        
-        particle.style.width = `${size}px`;
-        particle.style.height = `${size}px`;
-        particle.style.left = `${left}%`;
-        particle.style.animationDelay = `${delay}s`;
-        particle.style.setProperty('--random', random);
-        
-        particlesContainer.appendChild(particle);
-      }
-    }
-    
-    document.addEventListener('DOMContentLoaded', () => {
-      createParticles();
-      
-      let lastX = 0;
-      let lastY = 0;
-      const portal = document.createElement('div');
-      portal.className = 'portal-effect';
-      document.body.appendChild(portal);
-    
-      document.addEventListener('mousemove', (e) => {
-        lastX = lastX + (e.clientX - lastX) * 0.2;
-        lastY = lastY + (e.clientY - lastY) * 0.2;
-        
-        const time = Date.now() * 0.001;
-        const scale = 1 + Math.sin(time) * 0.1;
-        
-        portal.style.transform = `translate(-50%, -50%) scale(${scale})`;
-        portal.style.left = `${lastX}px`;
-        portal.style.top = `${lastY}px`;
-      });
-    
-      const dimensionOptions = document.querySelectorAll('.dimension-option');
-      dimensionOptions.forEach(option => {
-        option.addEventListener('click', () => {
-          dimensionOptions.forEach(opt => opt.classList.remove('selected'));
-          option.classList.add('selected');
-        });
-      });
-    
-      const bookingForm = document.getElementById('booking-form');
-      const successMessage = document.getElementById('success-message');
-    
-      bookingForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-    
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    
-        bookingForm.style.transition = 'opacity 1s';
-        bookingForm.style.opacity = '0';
-    
-        const bookingPortal = document.createElement('div');
-        bookingPortal.style.cssText = `
-          position: fixed;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          width: 0;
-          height: 0;
-          border-radius: 50%;
-          background: radial-gradient(circle at center, 
-            rgba(66,255,255,0.8) 0%,
-            rgba(255,66,255,0.6) 50%,
-            transparent 100%
-          );
-          z-index: 999;
-          transition: all 1.5s cubic-bezier(0.4, 0, 0.2, 1);
-        `;
-        document.body.appendChild(bookingPortal);
-    
-        requestAnimationFrame(() => {
-          bookingPortal.style.width = '300vw';
-          bookingPortal.style.height = '300vh';
-        });
-    
-        setTimeout(() => {
-          successMessage.style.display = 'block';
-          successMessage.style.opacity = '0';
-          successMessage.style.transform = 'translate(-50%, -50%) scale(0.8)';
-          
-          requestAnimationFrame(() => {
-            successMessage.style.transition = 'all 1s cubic-bezier(0.4, 0, 0.2, 1)';
-            successMessage.style.opacity = '1';
-            successMessage.style.transform = 'translate(-50%, -50%) scale(1)';
-          });
-          
-          bookingPortal.style.opacity = '0';
-          
-          const glitchTexts = successMessage.querySelectorAll('h2, p');
-          glitchTexts.forEach(text => text.classList.add('glitch-text'));
-          
-          setTimeout(() => bookingPortal.remove(), 1000);
-        }, 1000);
-    
-        // Redirect to confirmation page after 5 seconds
-        setTimeout(() => {
-          window.location.href = '/booking/confirmation.html';
-        }, 5000);
-      });
-    
-      const checkInInput = document.getElementById('check-in');
-      checkInInput.addEventListener('change', () => {
-        const randomOffset = Math.random() * 1000000000;
-        const currentValue = new Date(checkInInput.value).getTime();
-        const newValue = new Date(currentValue + randomOffset);
-        checkInInput.value = newValue.toISOString().slice(0, 16);
-      });
-    
-      setInterval(() => {
-        const randomElement = document.querySelector(['.form-group', '.dimension-option'][Math.floor(Math.random() * 2)]);
-        if (randomElement) {
-          randomElement.style.transform = `skew(${Math.random() * 2 - 1}deg) scale(${1 + Math.random() * 0.02})`;
-          setTimeout(() => {
-            randomElement.style.transform = 'none';
-          }, 200);
-        }
-      }, 3000);
-    
-      document.querySelectorAll('input, select, textarea').forEach(element => {
-        element.addEventListener('mouseover', () => {
-          element.style.transform = 'scale(1.02)';
-          element.style.boxShadow = '0 0 20px rgba(66,255,255,0.3)';
-        });
-        
-        element.addEventListener('mouseout', () => {
-          element.style.transform = 'scale(1)';
-          element.style.boxShadow = '';
-        });
-      });
-    
-      setInterval(() => {
-        const ripple = document.createElement('div');
-        ripple.style.cssText = `
-          position: fixed;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          width: 10px;
-          height: 10px;
-          background: transparent;
-          border: 2px solid rgba(66,255,255,0.3);
-          border-radius: 50%;
-          animation: ripple 4s ease-out forwards;
-          pointer-events: none;
-        `;
-        document.body.appendChild(ripple);
-        setTimeout(() => ripple.remove(), 4000);
-      }, 8000);
-    
-      setInterval(() => {
-        const formGroups = document.querySelectorAll('.form-group');
-        const randomGroup = formGroups[Math.floor(Math.random() * formGroups.length)];
-        randomGroup.style.transform = `scale(${1 + Math.random() * 0.01}) translateX(${Math.random() * 2 - 1}px)`;
-        setTimeout(() => {
-          randomGroup.style.transform = 'none';
-        }, 500);
-      }, 2000);
-    });
-    </script>
-    
-    </body></html>
+        background: transparent;
+        border: 2px solid rgba(66,255,255,0.3);
+        border-radius: 50%;
+        animation: ripple 4s ease-out forwards;
+        pointer-events: none;
+      `;
+      document.body.appendChild(ripple);
+      setTimeout(() => ripple.remove(), 4000);
+    }, 8000);
+  
+    setInterval(() => {
+      const formGroups = document.querySelectorAll('.form-group');
+      const randomGroup = formGroups[Math.floor(Math.random() * formGroups.length)];
+      randomGroup.style.transform = `scale(${1 + Math.random() * 0.01}) translateX(${Math.random() * 2 - 1}px)`;
+      setTimeout(() => {
+        randomGroup.style.transform = 'none';
+      }, 500);
+    }, 2000);
+  });
+  </script>
+  
+  </body></html>
