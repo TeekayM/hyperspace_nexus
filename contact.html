@@ -1,0 +1,584 @@
+<html><head><base href="/contact.html">
+    <meta charset="UTF-8">
+    <title>Contact The Void | 5th Dimensional Tourism Bureau</title>
+    <style>
+    :root {
+      --glow: 0 0 10px rgba(255,255,255,0.8), 0 0 20px rgba(100,200,255,0.4);
+    }
+    
+    body {
+      margin: 0;
+      background: #000;
+      color: #fff;
+      font-family: "Space Mono", monospace;
+      overflow-x: hidden;
+    }
+    
+    .contact-dimension {
+      min-height: 100vh;
+      background: 
+        radial-gradient(circle at 50% 50%, 
+          rgba(40,0,60,1) 0%,
+          rgba(20,0,40,0.8) 50%,
+          rgba(10,0,20,0.6) 100%);
+      padding: 40px;
+    }
+    
+    .contact-portal {
+      max-width: 800px;
+      margin: 60px auto;
+      background: rgba(0,0,0,0.7);
+      border: 2px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .slider-value {
+      background: rgba(0,0,0,0.3);
+      padding: 4px 10px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.1);
+      min-width: 50px;
+      text-align: center;
+      display: inline-block;
+    }
+    
+    option {
+      background-color: black;
+    }
+    
+    .checkbox-group {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 15px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 15px;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .checkbox-group label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 15px;
+      background: rgba(0,0,0,0.3);
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .checkbox-group label:hover {
+      background: rgba(255,255,255,0.1);
+      transform: translateX(5px);
+    }
+    
+    .checkbox-group input[type="checkbox"] {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 22px;
+      height: 22px;
+      background: rgba(255,255,255,0.1);
+      border: 2px solid rgba(255,255,255,0.3);
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    
+    .checkbox-group input[type="checkbox"]:checked {
+      background: rgba(100,200,255,0.3);
+      border-color: rgba(100,200,255,0.8);
+    }
+    
+    .checkbox-group input[type="checkbox"]:checked::after {
+      content: '';
+      width: 12px;
+      height: 12px;
+      background: rgba(255,255,255,0.9);
+      border-radius: 3px;
+      box-shadow: 0 0 10px rgba(100,200,255,0.8);
+      position: absolute;
+    }
+    
+    .portal-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      background: 
+        repeating-linear-gradient(
+          45deg,
+          transparent,
+          transparent 10px,
+          rgba(255,255,255,0.03) 10px,
+          rgba(255,255,255,0.03) 20px
+        );
+      animation: shift 20s linear infinite;
+    }
+    
+    @keyframes shift {
+      0% { background-position: 0 0; }
+      100% { background-position: 100px 100px; }
+    }
+    
+    .contact-form {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .form-group {
+      margin-bottom: 30px;
+      padding: 0 12px;
+      box-sizing: border-box;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 1.1em;
+      text-shadow: var(--glow);
+    }
+    
+    input, textarea, select {
+      width: 100%;
+      padding: 15px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 10px;
+      color: #fff;
+      font-family: inherit;
+      font-size: 1em;
+      transition: all 0.3s;
+    }
+    
+    input:focus, textarea:focus, select:focus {
+      outline: none;
+      border-color: rgba(255,255,255,0.5);
+      box-shadow: 0 0 20px rgba(255,255,255,0.2);
+    }
+    
+    textarea {
+      height: 150px;
+      resize: vertical;
+    }
+    
+    button {
+      background: transparent;
+      color: #fff;
+      border: 2px solid rgba(255,255,255,0.3);
+      padding: 15px 30px;
+      font-size: 1.1em;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-shadow: var(--glow);
+    }
+    
+    button:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.8);
+      transform: scale(1.05);
+    }
+    
+    .transmission-status {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 10px 20px;
+      background: rgba(0,255,0,0.2);
+      border-radius: 20px;
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
+    }
+    
+    .quantum-noise {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      opacity: 0.05;
+      z-index: 1000;
+      background: url('data:image/svg+xml,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noise)"/></svg>');
+    }
+    
+    /* Enhanced Slider Styles */
+    input[type="range"] {
+      -webkit-appearance: none;
+      appearance: none;
+      height: 8px;
+      background: linear-gradient(90deg, 
+        rgba(100,200,255,0.6) 0%,
+        rgba(200,100,255,0.6) 100%);
+      border-radius: 10px;
+      border: 2px solid rgba(255,255,255,0.1);
+      box-shadow: inset 0 0 5px rgba(0,0,0,0.5);
+      box-sizing: border-box;
+      width: calc(100% - 4px);
+      margin: 0 2px;
+    }
+    
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 24px;
+      height: 24px;
+      background: rgba(255,255,255,0.9);
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(100,200,255,0.8);
+      transition: all 0.3s ease;
+    }
+    
+    input[type="range"]::-webkit-slider-thumb:hover {
+      transform: scale(1.2);
+      box-shadow: 0 0 15px rgba(100,200,255,1);
+    }
+    
+    .warning-box {
+      margin: 30px 0;
+      padding: 20px;
+      background: rgba(255, 200, 0, 0.1);
+      border: 2px solid rgba(255, 200, 0, 0.3);
+      border-radius: 15px;
+      animation: warningPulse 4s infinite;
+    }
+    
+    .warning-content {
+      text-align: center;
+      font-size: 0.9em;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.9);
+    }
+    
+    .warning-symbol {
+      font-size: 1.5em;
+      display: block;
+      margin-bottom: 10px;
+    }
+    
+    @keyframes warningPulse {
+      0%, 100% { 
+        border-color: rgba(255, 200, 0, 0.3);
+        background: rgba(255, 200, 0, 0.1);
+      }
+      50% { 
+        border-color: rgba(255, 200, 0, 0.5);
+        background: rgba(255, 200, 0, 0.15);
+      }
+    }
+    </style>
+    </head>
+    <body>
+    
+    <div class="contact-dimension">
+      <div class="transmission-status">
+        Quantum Link Status: Active
+      </div>
+    
+      <div class="contact-portal">
+        <div class="portal-overlay"></div>
+        
+        <h1>C̸̦͊o̵̲͒n̵͚̈́t̵͎̔a̷͚̓c̷͚͝t̸̩̆ The Void</h1>
+        
+        <form class="contact-form" id="interdimensionalForm">
+          <div class="form-group">
+            <label>Your Designation (All Known Forms)</label>
+            <input type="text" required placeholder="e.g. Zyx-427/α or Human/John Smith">
+          </div>
+    
+          <div class="form-group">
+            <label>Dimensional Origin</label>
+            <select required>
+              <option value="">Select your dimension...</option>
+              <option value="0d">0th Dimension (Single Point)</option>
+              <option value="1d">1st Dimension (Linear Existence)</option>
+              <option value="2d">2nd Dimension (Flatland)</option>
+              <option value="3d">3rd Dimension (Material Plane)</option>
+              <option value="4d">4th Dimension (Time-Space Continuum)</option>
+              <option value="5d">5th Dimension (Probability Space)</option>
+              <option value="6d">6th Dimension (All Possible Worlds)</option>
+              <option value="7d">7th Dimension (Infinite Possibility Lines)</option>
+              <option value="8d">8th Dimension (Mathematical Abstract)</option>
+              <option value="9d">9th Dimension (Ultimate Consciousness)</option>
+              <option value="other">Other/Undefined Dimensional Cluster</option>
+            </select>
+          </div>
+    
+          <div class="form-group">
+            <label>Consciousness Wavelength <span class="slider-value">50%</span></label>
+            <input type="range" min="1" max="100" value="50" class="wavelength-slider">
+          </div>
+    
+          <div class="form-group">
+            <label>Temporal Stability <span class="slider-value">75%</span></label>
+            <input type="range" min="1" max="100" value="75" class="stability-slider">
+          </div>
+    
+          <div class="form-group">
+            <label>Quantum Entanglement Level <span class="slider-value">30%</span></label>
+            <input type="range" min="1" max="100" value="30" class="entanglement-slider">
+          </div>
+    
+          <div class="form-group">
+            <label>Entropic Resonance <span class="slider-value">60%</span></label>
+            <input type="range" min="1" max="100" value="60" class="entropy-slider">
+          </div>
+    
+          <div class="form-group">
+            <label>Probability Field Density <span class="slider-value">45%</span></label>
+            <input type="range" min="1" max="100" value="45" class="probability-slider">
+          </div>
+    
+          <div class="form-group">
+            <label>Primary Communication Spectrum</label>
+            <select required>
+              <option value="">Select spectrum...</option>
+              <option value="electromagnetic">Electromagnetic</option>
+              <option value="gravitational">Gravitational Waves</option>
+              <option value="quantum">Quantum Entanglement</option>
+              <option value="psychic">Psychic Frequencies</option>
+              <option value="tachyonic">Tachyonic Signals</option>
+              <option value="dimensional">Trans-dimensional Resonance</option>
+              <option value="void">Void Whispers</option>
+              <option value="cosmic">Cosmic Background Radiation</option>
+            </select>
+          </div>
+    
+          <div class="form-group">
+            <label>Temporal Alignment</label>
+            <select required>
+              <option value="">Select alignment...</option>
+              <option value="linear">Linear Time Stream</option>
+              <option value="circular">Circular Time Loop</option>
+              <option value="spiral">Spiral Time Helix</option>
+              <option value="branching">Branching Timeline</option>
+              <option value="quantum">Quantum Superposition</option>
+              <option value="reverse">Reverse Flow</option>
+              <option value="nonlinear">Non-linear Causality</option>
+              <option value="static">Static Eternal Now</option>
+            </select>
+          </div>
+    
+          <div class="form-group">
+            <label>Entity Classification</label>
+            <div class="checkbox-group">
+              <label><input type="checkbox"> Carbon-Based</label>
+              <label><input type="checkbox"> Silicon-Based</label>
+              <label><input type="checkbox"> Energy Being</label>
+              <label><input type="checkbox"> Collective Consciousness</label>
+              <label><input type="checkbox"> Quantum Construct</label>
+              <label><input type="checkbox"> Virtual Entity</label>
+              <label><input type="checkbox"> Hybrid Form</label>
+              <label><input type="checkbox"> Non-Euclidean</label>
+            </div>
+          </div>
+    
+          <div class="form-group">
+            <label>Security Clearance</label>
+            <select required>
+              <option value="">Select clearance level...</option>
+              <option value="omega">Omega Protocol</option>
+              <option value="alpha">Alpha Access</option>
+              <option value="beta">Beta Channel</option>
+              <option value="gamma">Gamma Stream</option>
+              <option value="delta">Delta Line</option>
+              <option value="epsilon">Epsilon Path</option>
+              <option value="zeta">Zeta Circuit</option>
+              <option value="null">Null Classification</option>
+              <option value="void">Void Signature</option>
+            </select>
+          </div>
+    
+          <div class="form-group">
+            <label>Current Phase State</label>
+            <select required>
+              <option value="">Select your phase state...</option>
+              <option value="material">Material</option>
+              <option value="energy">Energy</option>
+              <option value="information">Information</option>
+              <option value="quantum">Quantum Superposition</option>
+              <option value="antimatter">Antimatter</option>
+              <option value="dark-matter">Dark Matter</option>
+              <option value="string">String Vibration</option>
+              <option value="probability">Probability Cloud</option>
+              <option value="void">Pure Void</option>
+              <option value="consciousness">Pure Consciousness</option>
+              <option value="timecrystal">Time Crystal</option>
+              <option value="plasma">Exotic Plasma</option>
+              <option value="bose-einstein">Bose-Einstein Condensate</option>
+              <option value="tachyonic">Tachyonic Matter</option>
+              <option value="dimensional-flux">Dimensional Flux</option>
+              <option value="abstract">Abstract Concept</option>
+              <option value="paradox">Paradox State</option>
+              <option value="quantum-foam">Quantum Foam</option>
+            </select>
+          </div>
+    
+          <div class="form-group">
+            <label>Transmission Content</label>
+            <textarea required placeholder="Share your queries with the void... (temporal paradoxes welcome)"></textarea>
+          </div>
+    
+          <div class="form-group">
+            <label>Preferred Method of Reply</label>
+            <select required>
+              <option value="">Choose manifestation method...</option>
+              <option value="dream">Dream Sequence</option>
+              <option value="telepathy">Direct Telepathy</option>
+              <option value="quantum">Quantum Mail</option>
+              <option value="signs">Mysterious Signs</option>
+              <option value="crystalline">Crystalline Download</option>
+              <option value="timeloop">Temporal Loop Message</option>
+              <option value="parallel">Parallel Universe Echo</option>
+              <option value="email">Primitive Electronic Mail</option>
+            </select>
+          </div>
+    
+          <div class="form-group">
+            <label>Additional Services Required</label>
+            <div class="checkbox-group">
+              <label><input type="checkbox"> Reality Stabilization</label>
+              <label><input type="checkbox"> Temporal Insurance</label>
+              <label><input type="checkbox"> Quantum Encryption</label>
+              <label><input type="checkbox"> Interdimensional Translation</label>
+              <label><input type="checkbox"> Paradox Protection</label>
+              <label><input type="checkbox"> Memory Backup</label>
+            </div>
+          </div>
+    
+          <div class="form-group warning-box">
+            <div class="warning-content">
+              <span class="warning-symbol">⚠️</span>
+              <p>Warning: Your consciousness may be temporarily merged with our customer service hive mind during communication.</p>
+              <p>Side effects may include temporary omniscience, existence in multiple timelines, and a slight craving for non-euclidean snacks.</p>
+            </div>
+          </div>
+    
+          <button type="submit">Transmit to The Void</button>
+        </form>
+      </div>
+    </div>
+    
+    <div class="quantum-noise"></div>
+    
+    <script>
+    // Update slider values in real-time
+    document.querySelectorAll('input[type="range"]').forEach(slider => {
+      const valueDisplay = slider.previousElementSibling.querySelector('.slider-value');
+      slider.addEventListener('input', (e) => {
+        valueDisplay.textContent = `${e.target.value}%`;
+      });
+    });
+    
+    // Update all slider values on load
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('input[type="range"]').forEach(slider => {
+        const valueDisplay = slider.previousElementSibling.querySelector('.slider-value');
+        valueDisplay.textContent = `${slider.value}%`;
+      });
+    });
+    
+    document.getElementById('interdimensionalForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const transmission = document.createElement('div');
+      transmission.style.cssText = `
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 10px;
+        height: 10px;
+        background: white;
+        border-radius: 50%;
+        box-shadow: 0 0 50px 20px rgba(255,255,255,0.8);
+        z-index: 1000;
+      `;
+      document.body.appendChild(transmission);
+    
+      let scale = 1;
+      const expand = setInterval(() => {
+        scale += 0.2;
+        transmission.style.transform = `translate(-50%, -50%) scale(${scale})`;
+        transmission.style.opacity = 1 - (scale * 0.1);
+        
+        if (scale >= 10) {
+          clearInterval(expand);
+          transmission.remove();
+          showConfirmation();
+        }
+      }, 50);
+    });
+    
+    function showConfirmation() {
+      const confirmation = document.createElement('div');
+      confirmation.style.cssText = `
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(0,0,0,0.9);
+        padding: 40px;
+        border-radius: 20px;
+        text-align: center;
+        z-index: 1001;
+        border: 2px solid rgba(255,255,255,0.2);
+      `;
+      
+      confirmation.innerHTML = `
+        <h2>Transmission Received by The Void</h2>
+        <p>Your message has been scattered across multiple dimensions.</p>
+        <p>Expect a reply within ∞±3 business cycles.</p>
+        <button onclick="window.location.href='/'" style="margin-top: 20px;">
+          Acknowledge
+        </button>
+      `;
+      
+      document.body.appendChild(confirmation);
+    }
+    
+    setInterval(() => {
+      const glyph = document.createElement('div');
+      glyph.style.cssText = `
+        position: fixed;
+        font-size: ${Math.random() * 20 + 10}px;
+        color: rgba(255,255,255,0.5);
+        pointer-events: none;
+        z-index: 2;
+      `;
+      
+      const glyphs = ['∆', '∇', '○', '◊', '□', '∞', '∫', '∮'];
+      glyph.textContent = glyphs[Math.floor(Math.random() * glyphs.length)];
+      
+      glyph.style.left = Math.random() * window.innerWidth + 'px';
+      glyph.style.top = Math.random() * window.innerHeight + 'px';
+      
+      document.body.appendChild(glyph);
+      
+      let opacity = 1;
+      const fade = setInterval(() => {
+        opacity -= 0.02;
+        glyph.style.opacity = opacity;
+        
+        if (opacity <= 0) {
+          clearInterval(fade);
+          glyph.remove();
+        }
+      }, 50);
+    }, 100);
+    </script>
+    
+    </body></html>
